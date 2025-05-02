@@ -5,10 +5,11 @@
 #include <string>
 using namespace std;
 
-void gccCompile(string filePath){
+bool gccCompile(string filePath){
     string command="g++ main.cpp -o ";
     command+=filePath;
-    system(command.c_str());
+    int isCompiled=!system(command.c_str());
+    return isCompiled;
 }
 
 #endif

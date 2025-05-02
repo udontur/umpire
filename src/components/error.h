@@ -8,16 +8,12 @@
 using namespace std;
 using namespace fmt;
 
-int throwError(string errorMessage, int errorCode){
-    helpPage();
+int throwError(string errorMessage){
+    //helpPage();
     clearCache();
     string errorType;
 
-    if(errorCode==0) errorType="Argument error";
-    if(errorCode==1) errorType="Missing";
-    if(errorCode==2) errorType="Compilation error";
-
-    print(fg(color::red), "{}", errorType);
+    print(fg(color::red), "Error");
     print(": {}\n", errorMessage);
     return 1;
 }
