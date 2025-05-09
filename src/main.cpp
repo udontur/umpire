@@ -10,10 +10,10 @@
 #include <unordered_map> 
 #include <boost/thread.hpp>
 
-#include "util.hpp"
-#include "cache.hpp"
-#include "help.hpp"
-#include "error.hpp"
+#include "components/util.hpp"
+#include "components/cache.hpp"
+#include "components/help.hpp"
+#include "components/error.hpp"
 
 using namespace fmt;
 using namespace std;
