@@ -13,6 +13,7 @@ target_link_libraries(um PRIVATE
     Boost::thread 
     Boost::filesystem
     Boost::system
+    Boost::compute
 )
 
 target_include_directories(um PRIVATE src)

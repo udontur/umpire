@@ -5,8 +5,10 @@
 #include <vector>
 #include <filesystem>
 #include <unordered_map>
+#include <fmt/format.h>
 
 using namespace std;
+using namespace fmt;
 
 bool gccCompile(string filePath){
     string command="g++ main.cpp -o ";
@@ -18,28 +20,33 @@ bool gccCompile(string filePath){
 class File{
     public:
         string str;
+        string out;
+        string in;
         filesystem::path path;
-        int len=str.length();
 };
 
 vector<string> getPathList(string directory){
     vector<string> pathList;
     unordered_map<string, bool> isUnique;
+    
     for(auto const& dirEntry: filesystem::directory_iterator{directory}){
         File currentFile;
 
         currentFile.path=dirEntry.path().filename();
         currentFile.str=static_cast<string>(currentFile.path);
-
-        //int currentFile.len=currentFileStr.length();
+        //
+        
+        //int currentFile.str.length()=currentFileStr.str.length()gth();
         int dotPosition, eraseLength;
-        if(currentFile.str[currentFile.len-1]=='n'){
-            dotPosition=currentFile.len-3;
+        if(currentFile.str[currentFile.str.length()-1]=='n'){
+            dotPosition=currentFile.str.length()-3;
             eraseLength=3;
         }else{
-            dotPosition=currentFile.len-4;
+            dotPosition=currentFile.str.length()-4;
             eraseLength=4;
         }
+        //print("CHECK {}, {}, {}", eraseLength, dotPosition, currentFile.str);
+        //return pathList;
         currentFile.str.erase(dotPosition, eraseLength);
         
         if(!isUnique[currentFile.str]){

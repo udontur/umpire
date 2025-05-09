@@ -9,6 +9,8 @@
 #include <vector>
 #include <unordered_map> 
 #include <boost/thread.hpp>
+#include <boost/compute.hpp>
+#include "components/table.hpp"
 
 #include "components/util.hpp"
 #include "components/cache.hpp"
@@ -17,6 +19,7 @@
 
 using namespace fmt;
 using namespace std;
+namespace compute=boost::compute;
 
 class User {
    public:
@@ -82,6 +85,18 @@ int main(int argc, char* argv[]) {
 
     vector<string> pathList=getPathList(user.testcaseFolder);
 
+    for(auto i: pathList){
+        print("PATH: {}\n", i);
+    }
     
+    /*
+    for each testcase
+        THROW TO PARALLEL PROCESS (THREAD or GPU)
+            run the program using the input
+            if TLE => kill thread
+            make verdict using output and sample
+    COLLECT ALL PARALLEL PROCESS
+    Output final verdict
 
+    */
 }

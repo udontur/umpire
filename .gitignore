@@ -34,3 +34,18 @@
 build
 
 result
+
+test/ac/program
+test/ac/um
+test/ca/program
+test/ca/um
+test/case/program
+test/case/um
+test/nom/program
+test/nom/um
+test/rte/program
+test/rte/um
+test/tle/program
+test/tle/um
+test/wa/program
+test/wa/um
