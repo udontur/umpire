@@ -26,14 +26,10 @@
           ];
           buildPhase = ''
             cmake ..
-            echo "CMAKE DONE"
             cmake --build .
-            cat Makefile
           '';
           installPhase = ''
             mkdir -p $out/bin
-            pwd
-            ls
             install -D ./um $out/bin/um
           '';
 
