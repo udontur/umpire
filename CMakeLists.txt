@@ -1,15 +1,28 @@
-cmake_minimum_required(VERSION 3.11)
+cmake_minimum_required(VERSION 3.25)
+project(umpire LANGUAGES CXX)
 
-include(FetchContent)
+find_package(fmt CONFIG REQUIRED)
+find_package(Boost REQUIRED COMPONENTS thread filesystem system)
 
-FetchContent_Declare(
-  fmt
-  GIT_REPOSITORY https://github.com/fmtlib/fmt
-  GIT_TAG        e69e5f977d458f2650bb346dadf2ad30c5320281) # 10.2.1
-FetchContent_MakeAvailable(fmt)
+#set(thisproject_headerdir ${PROJECT_SOURCE_DIR}/src/components CACHE FILEPATH "Header directory")
 
-project(umpire)
+include_directories(src)
+#include_directories(src/components)
+#include_directories(${thisproject_headerdir})
 
 add_executable(um src/main.cpp)
 
-target_link_libraries(um fmt::fmt)
+target_link_libraries(um PRIVATE 
+    fmt::fmt 
+    Boost::thread 
+    Boost::filesystem
+    Boost::system
+)
+
+
+target_include_directories(um PRIVATE src)
+
+ # configurePhase = ''
+          #   cmake .
+          # '';
+# src/components/cache.hpp src/components/util.hpp src/components/error.hpp src/components/help.hpp

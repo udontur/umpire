@@ -1,30 +1,44 @@
 {
-  description = "Simple local C++ competitive programming judge";
+  description = "A Local C++ competitive programming judge";
   inputs.nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
   outputs =
     { self, nixpkgs }:
-    {
+    let 
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+    in{
       packages.x86_64-linux.default =
         with import nixpkgs {
           system = "x86_64-linux";
         };
         stdenv.mkDerivation {
-          name = "judgel";
+          name = "umpire";
           src = self;
+
+          nativeBuildInputs = [
+            pkgs.cmake
+            pkgs.pkg-config 
+          ];
+          buildInputs = [
+            pkgs.fmt
+            pkgs.gcc
+            pkgs.boost
+          ];
           buildPhase = ''
-            mkdir build
-            cd build
             cmake ..
+            echo "CMAKE DONE"
             cmake --build .
+            cat Makefile
           '';
           installPhase = ''
             mkdir -p $out/bin
-            install -D ./build/um $out/bin/um
+            pwd
+            ls
+            install -D ./um $out/bin/um
           '';
+
         };
     };
 }
 
-# termcolor
-# fmt
- 
+            # g++ -std=c++20 ./src/main.cpp -o um

@@ -3,8 +3,8 @@
 
 #include <fmt/format.h>
 #include <fmt/color.h>
-#include "./help.h"
-#include "./cache.h"
+#include "help.hpp"
+#include "cache.hpp"
 using namespace std;
 using namespace fmt;
 
