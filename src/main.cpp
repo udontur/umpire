@@ -66,6 +66,7 @@ int main(int argc, char* argv[]) {
     // Generate all the paths
     std::vector<std::string> pathList=getPathList(user.testcaseFolder);
     int testCaseIteratorIndex=0;
+
     for(auto currentTestCaseName: pathList){
         testCase currentTestCase;
         currentTestCase.name=currentTestCaseName;
@@ -73,6 +74,7 @@ int main(int argc, char* argv[]) {
         currentTestCase.out=user.testcaseFolder+"/"+currentTestCase.name+".out";
         currentTestCase.index=testCaseIteratorIndex;
         testCaseIteratorIndex++;
+
         testCaseList.push_back(currentTestCase);
     }
     
@@ -81,6 +83,7 @@ int main(int argc, char* argv[]) {
     for(auto currentTestCase: testCaseList){
         testCaseThreads[currentTestCase.index]=boost::thread(boost::bind(runTest, currentTestCase.index));  
     }
+
     for(auto currentTestCase: testCaseList){
         testCaseThreads[currentTestCase.index].join();
     }
@@ -97,13 +100,9 @@ int main(int argc, char* argv[]) {
         }else{
             verdict="Error";
         }
+
         fmt::print("{}({}): {}\n", currentTestCase.index, currentTestCase.name, verdict);
-        
     }
-    
-    // for(auto i: pathList){
-    //     print("PATH: {}\n", i);
-    // }
     
     // Element document=hbox({
     //     text("left") | border,
@@ -117,14 +116,4 @@ int main(int argc, char* argv[]) {
     // Render(screen, document);
     // screen.Print();
 
-    /*
-    for each testcase
-        THROW TO PARALLEL PROCESS (THREAD or GPU)
-            run the program using the input
-            if TLE => kill thread
-            make verdict using output and sample
-    COLLECT ALL PARALLEL PROCESS
-    Output final verdict
-
-    */
 }

@@ -20,9 +20,7 @@ std::vector<std::string> getPathList(std::string directory){
 
         currentFile.path=dirEntry.path().filename();
         currentFile.str=static_cast<std::string>(currentFile.path);
-        //
-        
-        //int currentFile.str.length()=currentFileStr.str.length()gth();
+
         int dotPosition, eraseLength;
         if(currentFile.str[currentFile.str.length()-1]=='n'){
             dotPosition=currentFile.str.length()-3;
@@ -31,8 +29,7 @@ std::vector<std::string> getPathList(std::string directory){
             dotPosition=currentFile.str.length()-4;
             eraseLength=4;
         }
-        //print("CHECK {}, {}, {}", eraseLength, dotPosition, currentFile.str);
-        //return pathList;
+        
         currentFile.str.erase(dotPosition, eraseLength);
         
         if(!isUnique[currentFile.str]){

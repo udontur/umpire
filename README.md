@@ -1,0 +1,18 @@
+- [x] argument parser
+- [x] compile program
+- [x] path list maker
+- [x] Multithread run case
+- [x] Case runner
+- [x] TLE
+- [x] WA and AC comparer
+- [ ] RTE detector
+- [ ] FTXUI output
+- [ ] Code refactoring (cleaner implementation)
+- [ ] Functionality clean up
+- [ ] Output clean up
+- [ ] Code clean up
+- [ ] Final Testing
+- [ ] nixpkgs
+- [ ] nix flakes
+- [ ] AUR?
+- [ ] README

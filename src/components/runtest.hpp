@@ -12,6 +12,7 @@ std::string rand64() {
     shuffle(random_string.begin(), random_string.end(), generator);
     return random_string;
 }
+
 int compareOutput(int currentTestCaseIndex, std::string outPath){
     testCase& currentTestCase=testCaseList[currentTestCaseIndex];
     
@@ -34,10 +35,13 @@ int compareOutput(int currentTestCaseIndex, std::string outPath){
     inUser.close();
     return 1;
 }
+
 void runTest(int currentTestCaseIndex){
+
     testCase& currentTestCase=testCaseList[currentTestCaseIndex];
     std::string outPath="./"+rand64()+".txt";
     std::string command="./"+user.program+" < "+currentTestCase.in+" > "+outPath;
+
     boost::thread runTestCase(system, command.c_str());
     if(!runTestCase.timed_join(boost::chrono::seconds(runTimeLimit))){
         runTestCase.interrupt();
@@ -45,6 +49,7 @@ void runTest(int currentTestCaseIndex){
     }else{
         currentTestCase.isAc=compareOutput(currentTestCaseIndex, outPath);
     }
+    
     std::filesystem::remove(outPath);
 }
 
