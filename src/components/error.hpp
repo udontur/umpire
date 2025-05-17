@@ -1,20 +1,16 @@
 #ifndef error
 #define error
 
-#include <fmt/format.h>
-#include <fmt/color.h>
-#include "help.hpp"
+#include "../global/allheader.hpp"
 #include "cache.hpp"
-using namespace std;
-using namespace fmt;
 
-int throwError(string errorMessage){
+int throwError(std::string errorMessage){
     //helpPage();
     clearCache();
-    string errorType;
+    std::string errorType;
 
-    print(fg(color::red), "Error");
-    print(": {}\n", errorMessage);
+    fmt::print(fmt::fg(fmt::color::red), "Error");
+    fmt::print(": {}\n", errorMessage);
     return 1;
 }
 

@@ -1,48 +1,25 @@
 #ifndef util
 #define util
 
-#include <string>
-#include <vector>
-#include <filesystem>
-#include <unordered_map>
-#include <fmt/format.h>
+#include "../global/allheader.hpp"
+#include "../global/var.hpp"
 
-using namespace std;
-using namespace fmt;
-
-bool gccCompile(string filePath){
-    string command="g++ main.cpp -o ";
+bool gccCompile(std::string filePath){
+    std::string command="g++ main.cpp -o ";
     command+=filePath;
     int isCompiled=!system(command.c_str());
     return isCompiled;
 }
 
-class File{
-    public:
-        string str;
-        string out;
-        string in;
-        filesystem::path path;
-};
-
-class User {
-    public:
-        string homeFolder = getenv("HOME");
-        string program = "program";
-        string testcaseFolder="testcase";
-};
- 
-User user;
-
-vector<string> getPathList(string directory){
-    vector<string> pathList;
-    unordered_map<string, bool> isUnique;
+std::vector<std::string> getPathList(std::string directory){
+    std::vector<std::string> pathList;
+    std::unordered_map<std::string, bool> isUnique;
     
-    for(auto const& dirEntry: filesystem::directory_iterator{directory}){
+    for(auto const& dirEntry: std::filesystem::directory_iterator{directory}){
         File currentFile;
 
         currentFile.path=dirEntry.path().filename();
-        currentFile.str=static_cast<string>(currentFile.path);
+        currentFile.str=static_cast<std::string>(currentFile.path);
         //
         
         //int currentFile.str.length()=currentFileStr.str.length()gth();

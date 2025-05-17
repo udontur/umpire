@@ -1,68 +1,51 @@
 #ifndef runtest
 #define runtest
 
-#include <fmt/format.h>
-#include <sys/stat.h>
-#include <boost/thread.hpp>
-#include <boost/chrono.hpp>
-#include <ftxui/dom/elements.hpp>
-#include <ftxui/screen/screen.hpp>
+#include "../global/allheader.hpp"
+#include "../global/var.hpp"
 
-#include <filesystem>
-#include <future>
-#include <iostream>
-#include <string>
-#include <thread>
-#include <vector>
-#include <unordered_map> 
-#include "util.hpp"
-#include <iostream>
-#include <string>
-#include <random>
-#include <algorithm>
-
-using namespace fmt;
-using namespace std;
-using namespace ftxui;
-
-struct testCase{
-    string name;
-    string in;
-    string out;
-    int index;
-    bool isTle=0;
-    int verdict=-1;
-    // 0: WA
-    // 1: AC
-    // 2: TLE
-    // HOW TO DETEECT RTE
-};
-
-int runTimeLimit;
-extern vector<testCase> testCaseList;
-
-string rand64() {
-    const string characters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-    random_device random_device;
-    mt19937 generator(random_device());
-    string random_string(characters);
+std::string rand64() {
+    const std::string characters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    std::random_device random_device;
+    std::mt19937 generator(random_device());
+    std::string random_string(characters);
     shuffle(random_string.begin(), random_string.end(), generator);
     return random_string;
 }
+int compareOutput(int currentTestCaseIndex, std::string outPath){
+    testCase& currentTestCase=testCaseList[currentTestCaseIndex];
+    
+    std::filesystem::path samplePath=currentTestCase.out;
+    std::filesystem::path userPath=outPath;
 
+    std::ifstream inSample(samplePath); //currentTestCase.out
+    std::ifstream inUser(userPath); //outPath
+
+    std::string sampleString, userString;
+    while(!inSample.eof()){
+        inSample>>sampleString;
+        inUser>>userString;
+        if(sampleString!=userString){
+            return 0;
+        }
+    }
+
+    inSample.close();
+    inUser.close();
+    return 1;
+}
 void runTest(int currentTestCaseIndex){
     testCase& currentTestCase=testCaseList[currentTestCaseIndex];
-    string outPath="./"+rand64()+".txt";
-    string command="./"+user.program+" < "+currentTestCase.in+" > "+outPath;
+    std::string outPath="./"+rand64()+".txt";
+    std::string command="./"+user.program+" < "+currentTestCase.in+" > "+outPath;
     boost::thread runTestCase(system, command.c_str());
-    if(runTestCase.timed_join(boost::chrono::seconds(runTimeLimit))){
-        print("HI {}: {}\n", currentTestCase.index, currentTestCase.isTle);
-    }else{
+    if(!runTestCase.timed_join(boost::chrono::seconds(runTimeLimit))){
         runTestCase.interrupt();
         currentTestCase.isTle=1;
-        print("HI [{},{}] [{},{}]\n", currentTestCase.index, currentTestCase.isTle, testCaseList[currentTestCaseIndex].index, testCaseList[currentTestCaseIndex].isTle);
+    }else{
+        currentTestCase.isAc=compareOutput(currentTestCaseIndex, outPath);
     }
-    filesystem::remove(outPath);
+    std::filesystem::remove(outPath);
 }
 
 #endif

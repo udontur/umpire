@@ -1,17 +1,5 @@
-#include <fmt/format.h>
-#include <sys/stat.h>
-#include <boost/thread.hpp>
-#include <boost/chrono.hpp>
-#include <ftxui/dom/elements.hpp>
-#include <ftxui/screen/screen.hpp>
-
-#include <filesystem>
-#include <future>
-#include <iostream>
-#include <string>
-#include <thread>
-#include <vector>
-#include <unordered_map> 
+#include "global/allheader.hpp"
+#include "global/var.hpp"
 
 #include "components/util.hpp"
 #include "components/cache.hpp"
@@ -19,15 +7,11 @@
 #include "components/error.hpp"
 #include "components/runtest.hpp"
 
-using namespace fmt;
 using namespace std;
-using namespace ftxui;
-
-vector<testCase> testCaseList;
 
 int main(int argc, char* argv[]) {
 
-    print("testing {}", 1);
+    fmt::print("testing {}", 1);
     // Argument parsing
     
     if (argc == 1) {
@@ -71,18 +55,16 @@ int main(int argc, char* argv[]) {
 
     // Compile user's main.cpp
     auto compileThread = async(gccCompile, user.program);
-
-    print("Compiling program...\n");
-
+    fmt::print("Compiling program...\n");
     bool isCompiled = compileThread.get();
     if (!isCompiled) {
         return throwError("Cannot compile your code!");
     } else {
-        print("Compiled!\n");
+        fmt::print("Compiled!\n");
     }
 
-    vector<string> pathList=getPathList(user.testcaseFolder);
-    
+    // Generate all the paths
+    std::vector<std::string> pathList=getPathList(user.testcaseFolder);
     int testCaseIteratorIndex=0;
     for(auto currentTestCaseName: pathList){
         testCase currentTestCase;
@@ -94,6 +76,7 @@ int main(int argc, char* argv[]) {
         testCaseList.push_back(currentTestCase);
     }
     
+    // Multitrhead run each case
     boost::thread testCaseThreads[testCaseList.size()];
     for(auto currentTestCase: testCaseList){
         testCaseThreads[currentTestCase.index]=boost::thread(boost::bind(runTest, currentTestCase.index));  
@@ -101,8 +84,20 @@ int main(int argc, char* argv[]) {
     for(auto currentTestCase: testCaseList){
         testCaseThreads[currentTestCase.index].join();
     }
+
+    // Verdict Maker
     for(auto currentTestCase: testCaseList){
-        print("{}: {} {}\n", currentTestCase.index, currentTestCase.verdict, currentTestCase.isTle);
+        std::string verdict;
+        if(currentTestCase.isTle){
+            verdict="Time Limit Exceeded";
+        }else if(currentTestCase.isAc){
+            verdict="Accepted";
+        }else if(!currentTestCase.isAc){
+            verdict="Wrong Answer";
+        }else{
+            verdict="Error";
+        }
+        fmt::print("{}({}): {}\n", currentTestCase.index, currentTestCase.name, verdict);
         
     }
     

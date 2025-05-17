@@ -22,10 +22,10 @@
           buildInputs = [
             pkgs.fmt
             pkgs.gcc
-            pkgs.boost
+            pkgs.boost186
             pkgs.ftxui
           ];
-          
+
           buildPhase = ''
             cmake ..
             cmake --build .

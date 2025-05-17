@@ -1,13 +1,10 @@
 #ifndef help
 #define help
 
-#include <fmt/format.h>
-#include <string>
-using namespace fmt;
-using namespace std;
+#include "../global/allheader.hpp"
 
 void helpPage(){
-    print("HELP PAGE!\n");
+    fmt::print("HELP PAGE!\n");
 }
 
 #endif
