@@ -7,12 +7,25 @@
 - [x] WA and AC comparer
 - [ ] RTE detector
 - [ ] FTXUI output
-- [ ] Code refactoring (cleaner implementation)
-- [ ] Functionality clean up
-- [ ] Output clean up
-- [ ] Code clean up
-- [ ] Final Testing
-- [ ] nixpkgs
-- [ ] nix flakes
-- [ ] AUR?
+- [ ] Multi-language support
+    - [ ] C++
+    - [ ] Python
+    - [ ] Java
+    - [ ] Rust
+    - [ ] Go
+    - [ ] JavaScript
+
+- [ ] Development Check
+    - [ ] Code refactoring (cleaner implementation)
+    - [ ] Functionality clean up
+    - [ ] Output clean up
+    - [ ] Code clean up
+    - [ ] Final Testing
+
 - [ ] README
+
+- [ ] Packages
+    - [ ] nix flakes (all systems (idk how to check for apple))
+    - [ ] nixpkgs
+    - [ ] AUR
+    - [ ] homebrew (idk how to check for apple)

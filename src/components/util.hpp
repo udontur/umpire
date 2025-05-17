@@ -5,6 +5,7 @@
 #include "../global/var.hpp"
 
 bool gccCompile(std::string filePath){
+    // Can add multilanguage support
     std::string command="g++ main.cpp -o ";
     command+=filePath;
     int isCompiled=!system(command.c_str());

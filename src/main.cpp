@@ -51,7 +51,6 @@ int main(int argc, char* argv[]) {
 
     // Getting ready
     clearCache();
-    
 
     // Compile user's main.cpp
     auto compileThread = async(gccCompile, user.program);
