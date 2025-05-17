@@ -28,11 +28,9 @@
 
 # Executables
 *.exe
-*.out
 *.app
 
 build
-
 result
 
 test/ac/program

@@ -1,5 +1,9 @@
 #include <fmt/format.h>
 #include <sys/stat.h>
+#include <boost/thread.hpp>
+#include <boost/chrono.hpp>
+#include <ftxui/dom/elements.hpp>
+#include <ftxui/screen/screen.hpp>
 
 #include <filesystem>
 #include <future>
@@ -8,30 +12,24 @@
 #include <thread>
 #include <vector>
 #include <unordered_map> 
-#include <boost/thread.hpp>
-#include <boost/compute.hpp>
-#include "components/table.hpp"
 
 #include "components/util.hpp"
 #include "components/cache.hpp"
 #include "components/help.hpp"
 #include "components/error.hpp"
+#include "components/runtest.hpp"
 
 using namespace fmt;
 using namespace std;
-namespace compute=boost::compute;
+using namespace ftxui;
 
-class User {
-   public:
-    string homeFolder = getenv("HOME");
-    string program = "program";
-    string testcaseFolder="testcase";
-};
+vector<testCase> testCaseList;
 
 int main(int argc, char* argv[]) {
+
     print("testing {}", 1);
     // Argument parsing
-    int runTimeLimit;
+    
     if (argc == 1) {
         // Default time limit
         runTimeLimit = 1;
@@ -69,7 +67,7 @@ int main(int argc, char* argv[]) {
 
     // Getting ready
     clearCache();
-    User user;
+    
 
     // Compile user's main.cpp
     auto compileThread = async(gccCompile, user.program);
@@ -84,11 +82,46 @@ int main(int argc, char* argv[]) {
     }
 
     vector<string> pathList=getPathList(user.testcaseFolder);
-
-    for(auto i: pathList){
-        print("PATH: {}\n", i);
+    
+    int testCaseIteratorIndex=0;
+    for(auto currentTestCaseName: pathList){
+        testCase currentTestCase;
+        currentTestCase.name=currentTestCaseName;
+        currentTestCase.in=user.testcaseFolder+"/"+currentTestCase.name+".in";
+        currentTestCase.out=user.testcaseFolder+"/"+currentTestCase.name+".out";
+        currentTestCase.index=testCaseIteratorIndex;
+        testCaseIteratorIndex++;
+        testCaseList.push_back(currentTestCase);
     }
     
+    boost::thread testCaseThreads[testCaseList.size()];
+    for(auto currentTestCase: testCaseList){
+        testCaseThreads[currentTestCase.index]=boost::thread(boost::bind(runTest, currentTestCase.index));  
+    }
+    for(auto currentTestCase: testCaseList){
+        testCaseThreads[currentTestCase.index].join();
+    }
+    for(auto currentTestCase: testCaseList){
+        print("{}: {} {}\n", currentTestCase.index, currentTestCase.verdict, currentTestCase.isTle);
+        
+    }
+    
+    // for(auto i: pathList){
+    //     print("PATH: {}\n", i);
+    // }
+    
+    // Element document=hbox({
+    //     text("left") | border,
+    //     text("center") | border | flex,
+    //     text("right") | border,
+    // });
+    // auto screen=Screen::Create(
+    //     Dimension::Full(),
+    //     Dimension::Fit(document)
+    // );
+    // Render(screen, document);
+    // screen.Print();
+
     /*
     for each testcase
         THROW TO PARALLEL PROCESS (THREAD or GPU)

@@ -1,5 +1,5 @@
 {
-  description = "A Local C++ competitive programming judge";
+  description = "An Offline Competitive Programming C++ Judge";
   inputs.nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
   outputs =
     { self, nixpkgs }:
@@ -23,7 +23,9 @@
             pkgs.fmt
             pkgs.gcc
             pkgs.boost
+            pkgs.ftxui
           ];
+          
           buildPhase = ''
             cmake ..
             cmake --build .

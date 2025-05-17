@@ -1,8 +1,9 @@
-cmake_minimum_required(VERSION 3.25)
+cmake_minimum_required(VERSION 3.13)
 project(umpire LANGUAGES CXX)
 
 find_package(fmt CONFIG REQUIRED)
 find_package(Boost REQUIRED COMPONENTS thread filesystem system)
+find_package(ftxui REQUIRED)
 
 include_directories(src)
 
@@ -13,7 +14,9 @@ target_link_libraries(um PRIVATE
     Boost::thread 
     Boost::filesystem
     Boost::system
-    Boost::compute
+    ftxui::screen
+    ftxui::dom
+    ftxui::component
 )
 
 target_include_directories(um PRIVATE src)

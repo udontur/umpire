@@ -25,6 +25,15 @@ class File{
         filesystem::path path;
 };
 
+class User {
+    public:
+        string homeFolder = getenv("HOME");
+        string program = "program";
+        string testcaseFolder="testcase";
+};
+ 
+User user;
+
 vector<string> getPathList(string directory){
     vector<string> pathList;
     unordered_map<string, bool> isUnique;
