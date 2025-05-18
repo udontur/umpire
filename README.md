@@ -7,6 +7,7 @@
 - [x] WA and AC comparer
 - [ ] RTE detector
 - [ ] FTXUI output
+- [ ] Helper functions
 - [x] Multi-language support
     - [x] C++
     - [x] Python
@@ -19,8 +20,8 @@
     - [ ] Code refactoring (cleaner implementation)
     - [ ] Functionality clean up
     - [ ] Output clean up
-    - [ ] Code clean up
-    - [ ] Final Testing
+    - [ ] Code clean up (folder structures and formatting)
+    - [ ] Final Testing (please work after refactorring)
 
 - [ ] README
 
