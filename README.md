@@ -26,7 +26,7 @@
 - [ ] README
 
 - [ ] Packages
-    - [ ] nix flakes (all systems (idk how to check for apple))
-    - [ ] nixpkgs
-    - [ ] AUR
+    - [ ] nix flakes (all systems, priority)
+    - [ ] AUR (Priority)
+    - [ ] nixpkgs (Wait a long long time, so wait after many bug squashes)
     - [ ] homebrew (idk how to check for apple)
