@@ -14,8 +14,14 @@ class File{
 class User {
     public:
         std::string homeFolder = getenv("HOME");
-        std::string program = "program";
+        std::string program = "main";
         std::string testcaseFolder="testcase";
+        bool isCpp=0;
+        bool isPy=0;
+        bool isRs=0;
+        bool isGo=0;
+        bool isJs=0;
+        bool isJava=0;
 };
  
 User user;

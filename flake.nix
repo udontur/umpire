@@ -15,15 +15,21 @@
           name = "umpire";
           src = self;
 
-          nativeBuildInputs = [
-            pkgs.cmake
-            pkgs.pkg-config 
+          nativeBuildInputs = with pkgs;[
+            cmake
+            pkg-config 
           ];
-          buildInputs = [
-            pkgs.fmt
-            pkgs.gcc
-            pkgs.boost186
-            pkgs.ftxui
+          buildInputs = with pkgs;[
+            fmt
+            boost186
+            ftxui
+            
+            gcc
+            python314
+            go
+            zulu8
+            rustc
+            nodejs_22
           ];
 
           buildPhase = ''
@@ -34,7 +40,14 @@
             mkdir -p $out/bin
             install -D ./um $out/bin/um
           '';
-
+          shellHook = ''
+            export PATH=${pkgs.go}/bin:$PATH
+            export PATH=${pkgs.gcc}/bin:$PATH
+            export PATH=${pkgs.rustc}/bin:$PATH
+            export PATH=${pkgs.python314}/bin:$PATH
+            export PATH=${pkgs.nodejs_22}/bin:$PATH
+            export PATH=${pkgs.zulu8}/bin:$PATH
+          '';
         };
     };
 }

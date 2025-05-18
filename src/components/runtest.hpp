@@ -40,7 +40,17 @@ void runTest(int currentTestCaseIndex){
 
     testCase& currentTestCase=testCaseList[currentTestCaseIndex];
     std::string outPath="./"+rand64()+".txt";
-    std::string command="./"+user.program+" < "+currentTestCase.in+" > "+outPath;
+
+    std::string prefix="./"+user.program;
+    if(user.isPy){
+        prefix="python3 "+user.program+".py";
+    }else if(user.isJs){
+        prefix="node "+user.program+".js";
+    }else if(user.isJava){
+        prefix="java "+user.program;
+    }
+
+    std::string command=prefix+" < "+currentTestCase.in+" > "+outPath;
 
     boost::thread runTestCase(system, command.c_str());
     if(!runTestCase.timed_join(boost::chrono::seconds(runTimeLimit))){

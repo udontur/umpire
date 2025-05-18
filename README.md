@@ -7,13 +7,13 @@
 - [x] WA and AC comparer
 - [ ] RTE detector
 - [ ] FTXUI output
-- [ ] Multi-language support
-    - [ ] C++
-    - [ ] Python
-    - [ ] Java
-    - [ ] Rust
-    - [ ] Go
-    - [ ] JavaScript
+- [x] Multi-language support
+    - [x] C++
+    - [x] Python
+    - [x] Java
+    - [x] Rust
+    - [x] Go
+    - [x] JavaScript
 
 - [ ] Development Check
     - [ ] Code refactoring (cleaner implementation)

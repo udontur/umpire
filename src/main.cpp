@@ -45,23 +45,39 @@ int main(int argc, char* argv[]) {
     if (filesystem::exists("testcase") == false) {
         return throwError("\"testcase\" folder not found.");
     }
-    if (filesystem::exists("main.cpp") == false) {
-        return throwError("\"main.cpp\" not found.");
+    if(!mainExists()){
+        return throwError("Code file not found. \nSupported Language: C++, Rust, Go, Java, Pytho, JavaScript");
     }
 
     // Getting ready
     clearCache();
 
-    // Compile user's main.cpp
-    auto compileThread = async(gccCompile, user.program);
-    fmt::print("Compiling program...\n");
-    bool isCompiled = compileThread.get();
-    if (!isCompiled) {
-        return throwError("Cannot compile your code!");
-    } else {
-        fmt::print("Compiled!\n");
-    }
+    if(user.isCpp||
+       user.isGo ||
+       user.isRs ||
+       user.isJava
+    ){
+        // Compiler
+        // C++: g++ main.cpp -o main
+        // Go: go build -o main main.go
+        // Rust: rustc main.rs -o main
+        // Java: javac main.java
 
+        // Interpreter
+        // Python: python3 main.py
+        // JavaScript: node main.js
+        
+        auto compileThread = async(runCompile);
+        fmt::print("Compiling program...\n");
+        bool isCompiled = compileThread.get();
+
+        if (!isCompiled) {
+            return throwError("Cannot compile your code!");
+        } else {
+            fmt::print("Compiled!\n");
+        }
+    }
+    
     // Generate all the paths
     std::vector<std::string> pathList=getPathList(user.testcaseFolder);
     int testCaseIteratorIndex=0;
