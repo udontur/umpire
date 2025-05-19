@@ -5,9 +5,6 @@
 - [x] Case runner
 - [x] TLE
 - [x] WA and AC comparer
-- [ ] RTE detector
-- [ ] FTXUI output
-- [ ] Helper functions
 - [x] Multi-language support
     - [x] C++
     - [x] Python
@@ -15,6 +12,12 @@
     - [x] Rust
     - [x] Go
     - [x] JavaScript
+- [ ] Detect RTE (empty output?)
+- [ ] Time limit: accept doubles too (store it in milliseconds afterwards)
+- [ ] FTXUI output
+- [ ] Helper functions (Help and clear cache)
+- [ ] MLE and Memory limit? (I have absolutly zero idea how it will works)
+- [ ] Better way to store those outputs and programs
 
 - [ ] Development Check
     - [ ] Code refactoring (cleaner implementation)
@@ -28,5 +31,5 @@
 - [ ] Packages
     - [ ] nix flakes (all systems, priority)
     - [ ] AUR (Priority)
-    - [ ] nixpkgs (Wait a long long time, so wait after many bug squashes)
     - [ ] homebrew (idk how to check for apple)
+    - [ ] nixpkgs (Wait a long long time, so wait after many bug squashes)
