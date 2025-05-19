@@ -18,6 +18,7 @@
 - [ ] Helper functions (Help and clear cache)
 - [ ] MLE and Memory limit? (I have absolutly zero idea how it will works)
 - [ ] Better way to store those outputs and programs
+- [ ] Full testing
 
 - [ ] Development Check
     - [ ] Code refactoring (cleaner implementation)
@@ -29,7 +30,7 @@
 - [ ] README
 
 - [ ] Packages
-    - [ ] nix flakes (all systems, priority)
+    - [ ] nix flakes (Priority, all systems)
     - [ ] AUR (Priority)
-    - [ ] homebrew (idk how to check for apple)
-    - [ ] nixpkgs (Wait a long long time, so wait after many bug squashes)
+    - [ ] homebrew (Priority, but idk how to check for apple)
+    - [ ] nixpkgs (Wait a long long time, so wait after many bug squashes, ask in discord)
