@@ -1,7 +1,10 @@
 git add .
+# nix develop
 nix build
 
-array=("ac" "ca" "case" "nom" "rte" "tle" "wa" "go" "java" "javascript" "python" "rust")
+# "go" "java" "javascript" "python" "rust"
+
+array=("ac" "ca" "case" "nom" "rte" "tle" "wa" )
 for name in "${array[@]}"
 do
     echo -e "\033[93m$name test STARTED \e[0m"

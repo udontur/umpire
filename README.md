@@ -1,3 +1,4 @@
+### Functionality
 - [x] argument parser
 - [x] compile program
 - [x] path list maker
@@ -5,32 +6,55 @@
 - [x] Case runner
 - [x] TLE
 - [x] WA and AC comparer
-- [x] Multi-language support
-    - [x] C++
-    - [x] Python
-    - [x] Java
-    - [x] Rust
-    - [x] Go
-    - [x] JavaScript
 - [ ] Detect RTE (empty output?)
 - [ ] Time limit: accept doubles too (store it in milliseconds afterwards)
+- [ ] Program cache handelder
+    - [ ] Clear cache function
+    - [ ] Dedicated cache storage (programs and outputs)
 - [ ] FTXUI output
-- [ ] Helper functions (Help and clear cache)
-- [ ] MLE and Memory limit? (I have absolutly zero idea how it will works)
-- [ ] Better way to store those outputs and programs
-- [ ] Full testing
 
-- [ ] Development Check
-    - [ ] Code refactoring (cleaner implementation)
-    - [ ] Functionality clean up
-    - [ ] Output clean up
-    - [ ] Code clean up (folder structures and formatting)
-    - [ ] Final Testing (please work after refactorring)
-
+### Documentation
 - [ ] README
+- [ ] help function (the --help or -h)
+- [ ] man page (man umpire)
 
-- [ ] Packages
-    - [ ] nix flakes (Priority, all systems)
-    - [ ] AUR (Priority)
-    - [ ] homebrew (Priority, but idk how to check for apple)
-    - [ ] nixpkgs (Wait a long long time, so wait after many bug squashes, ask in discord)
+### Multi-language support
+- [x] C++
+- [x] Python
+- [x] Java
+- [x] Rust
+- [x] Go
+- [x] JavaScript
+
+### Assisted Tools
+- [ ] Template init (um init)
+- [ ] testcase folder converter (um -c)
+    - [ ] inputABC.txt outputABC.txt (input)
+    - [ ] input-ABC.txt output-ABC.txt (input-) 
+    - [ ] ABCin.txt ABCout.txt (in)
+    - [ ] ABC-in.txt ABC-out.txt (in-)
+
+### Testing
+- [ ] Full testing
+- [ ] Fully automated checkers
+- [ ] Code refactoring (cleaner implementation)
+- [ ] Functionality clean up
+- [ ] Output clean up
+- [ ] Code clean up (folder structures and formatting)
+- [ ] Final Testing (please work after refactorring)
+
+### Package Managment
+#### First Release
+- [ ] nix flakes (Priority, all systems)
+
+#### Second Release (main)
+- [ ] AUR
+- [ ] nixpkgs (long time)
+- [ ] homebrew (i dont have an apple machine)
+
+#### Future Release
+- [ ] vcpkgs
+- [ ] .deb or .rpm
+
+### Future Roadmaps
+- [ ] MLE and Memory limit
