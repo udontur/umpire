@@ -36,7 +36,7 @@
 
 ### Testing
 - [ ] Full testing
-- [ ] Fully automated checkers
+- [ ] Fully automated checkers (github actions)
 - [ ] Code refactoring (cleaner implementation)
 - [ ] Functionality clean up
 - [ ] Output clean up
