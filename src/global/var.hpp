@@ -32,7 +32,8 @@ struct testCase{
     std::string out;
     int index;
     bool isTle=0;
-    int isAc=-1;
+    bool isAc=0;
+    bool isRte=0;
 };
 
 int runTimeLimit;

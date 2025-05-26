@@ -4,10 +4,10 @@
 - [x] path list maker
 - [x] Multithread run case
 - [x] Case runner
-- [x] TLE
+- [ ] TLE (I am doomed, it still does not work. Hour wasted: 5)
 - [x] WA and AC comparer
-- [ ] Detect RTE (empty output?)
-- [ ] Time limit: accept doubles too (store it in milliseconds afterwards)
+- [x] Detect RTE (empty output?)
+- [x] Time limit: accept doubles too (store it in milliseconds afterwards)
 - [ ] Program cache handelder
     - [ ] Clear cache function
     - [ ] Dedicated cache storage (programs and outputs)

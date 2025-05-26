@@ -16,7 +16,7 @@ int main(int argc, char* argv[]) {
     
     if (argc == 1) {
         // Default time limit
-        runTimeLimit = 1;
+        runTimeLimit = 1000;
     } else if (argc == 2) {
         // Flags: --help, -h
         if (!strcmp(argv[1], "--help") == true ||
@@ -30,9 +30,9 @@ int main(int argc, char* argv[]) {
         // Flags: -t
         if (!strcmp(argv[1], "-t") == true) {
             try {
-                runTimeLimit = stoi(argv[2]);
+                runTimeLimit = stod(argv[2])*1000;
             } catch (...) {
-                return throwError("Time limit must be an integer.");
+                return throwError("Time limit must be an number.");
             }
         } else {
             return throwError("Invalid flags.");
@@ -65,7 +65,7 @@ int main(int argc, char* argv[]) {
 
         // Interpreter
         // Python: python3 main.py
-        // JavaScript: node main.js
+        // JavaScript: bun run main.js
         
         auto compileThread = async(runCompile);
         fmt::print("Compiling program...\n");
@@ -108,12 +108,14 @@ int main(int argc, char* argv[]) {
         std::string verdict;
         if(currentTestCase.isTle){
             verdict="Time Limit Exceeded";
-        }else if(currentTestCase.isAc){
-            verdict="Accepted";
+        }else if(currentTestCase.isRte){
+            verdict="Runtime Error";
         }else if(!currentTestCase.isAc){
             verdict="Wrong Answer";
-        }else{
-            verdict="Error";
+        }else if(currentTestCase.isAc){
+            verdict="Accepted";
+        } else{
+            verdict="Internal Error";
         }
 
         fmt::print("{}({}): {}\n", currentTestCase.index, currentTestCase.name, verdict);

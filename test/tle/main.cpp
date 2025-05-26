@@ -1,5 +1,8 @@
 #include <iostream>
 using namespace std;
 int main(){
-	while(1) cout<<"hi\n";
+    int sum=0;
+	while(1){
+        sum+=1;
+    }
 }
