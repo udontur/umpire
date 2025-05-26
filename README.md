@@ -12,6 +12,7 @@
     - [ ] Clear cache function
     - [ ] Dedicated cache storage (programs and outputs)
 - [ ] FTXUI output
+- [ ] Nix Flake: Add aarch64
 
 ### Documentation
 - [ ] README
@@ -21,10 +22,12 @@
 ### Multi-language support
 - [x] C++
 - [x] Python
-- [x] Java
+- [x] Java (huge package size)
 - [x] Rust
 - [x] Go
 - [x] JavaScript
+- [ ] C
+- [ ] Kotlin
 
 ### Assisted Tools
 - [ ] Template init (um init)
@@ -34,27 +37,28 @@
     - [ ] ABCin.txt ABCout.txt (in)
     - [ ] ABC-in.txt ABC-out.txt (in-)
 
-### Testing
-- [ ] Full testing
-- [ ] Fully automated checkers (github actions)
+### Final Testing
 - [ ] Code refactoring (cleaner implementation)
 - [ ] Functionality clean up
 - [ ] Output clean up
-- [ ] Code clean up (folder structures and formatting)
+- [ ] Folder structures and formatting
 - [ ] Final Testing (please work after refactorring)
 
+### CI
+- [ ] TestCase checker
+- [ ] Build checker: GitHub Actions
+  - [ ] nix flakes / nixpkgs
+  - [ ] PKGBUILD (Arch)
+  - [ ] homebrew (Apple)
+
 ### Package Managment
-#### First Release
-- [ ] nix flakes (Priority, all systems)
+#### Unstable Release
+- nix flakes (linux only)
 
-#### Second Release (main)
+#### Very Stable Release (main)
 - [ ] AUR
-- [ ] nixpkgs (long time)
-- [ ] homebrew (i dont have an apple machine)
-
-#### Future Release
-- [ ] vcpkgs
-- [ ] .deb or .rpm
+- [ ] homebrew
+- [ ] nixpkgs (upload)
 
 ### Future Roadmaps
 - [ ] MLE and Memory limit

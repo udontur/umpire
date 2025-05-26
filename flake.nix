@@ -24,12 +24,12 @@
             boost186
             ftxui
             
-            gcc
+            gcc # C++
             python314
             go
-            zulu8
+            zulu8 # Java
             rustc
-            bun
+            bun # JS
           ];
 
           buildPhase = ''
