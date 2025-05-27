@@ -20,7 +20,6 @@ class User {
         bool isPy=0;
         bool isRs=0;
         bool isGo=0;
-        bool isJs=0;
         bool isJava=0;
 };
  

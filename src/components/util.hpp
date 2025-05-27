@@ -59,8 +59,6 @@ bool mainExists(){
         user.isRs=1;
     }else if(std::filesystem::exists("main.go") == true){
         user.isGo=1;
-    }else if(std::filesystem::exists("main.js") == true){
-        user.isJs=1;
     }else if(std::filesystem::exists("main.java") == true){
         user.isJava=1;
     }
@@ -69,7 +67,6 @@ bool mainExists(){
         std::filesystem::exists("main.py") == true ||
         std::filesystem::exists("main.rs") == true ||
         std::filesystem::exists("main.go") == true ||
-        std::filesystem::exists("main.js") == true ||
         std::filesystem::exists("main.java") == true
     ) return true;
     else return false;

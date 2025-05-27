@@ -15,8 +15,8 @@
     - [ ] Clear cache function
     - [ ] Dedicated cache storage (programs and outputs ```~/.cache/umpire```)
 - [ ] FTXUI output
-- [ ] Nix Flake: Add aarch64 and apple
-- [ ] Symlink um to umpire
+- [ ] **WIP** Nix Flake: Add aarch64 and apple (make sure to edit githuv actions)
+- [x] Symlink um to umpire (maybe move to cmake)
 
 ### Multi-language support (but huge pkg size)
 - [x] C++ (Most common)
@@ -25,7 +25,7 @@
 - [ ] Kotlin (might add or might not add since java is here)
 - [x] Rust
 - [x] Go
-- [x] JavaScript (might delete)
+- [x] ~~JavaScript (might delete)~~
 
 ### Assisted Tools
 - [ ] Template init (um init)

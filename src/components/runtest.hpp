@@ -44,8 +44,6 @@ void runTest(int currentTestCaseIndex){
     std::string prefix="./"+user.program;
     if(user.isPy){
         prefix="python3 "+user.program+".py";
-    }else if(user.isJs){
-        prefix="bun run"+user.program+".js";
     }else if(user.isJava){
         prefix="java "+user.program;
     }
