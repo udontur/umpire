@@ -10,6 +10,8 @@
 - [x] Detect RTE (empty output?)
 - [x] Time limit: accept doubles too (store it in milliseconds afterwards)
 - [ ] Program cache handelder
+    - [ ] Do it before and after the program (and error exits)
+    - [ ] Check if the folder is empty first 
     - [ ] Clear cache function
     - [ ] Dedicated cache storage (programs and outputs ```~/.cache/umpire```)
 - [ ] FTXUI output
