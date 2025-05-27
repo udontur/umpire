@@ -47,7 +47,7 @@
 ### CI
 - [ ] TestCase checker
 - [ ] Build checker: GitHub Actions
-  - [ ] nix flakes / nixpkgs
+  - [x] nix flakes / nixpkgs
   - [ ] PKGBUILD (Arch)
   - [ ] homebrew (Apple)
 
@@ -55,10 +55,12 @@
 #### Unstable Release
 - nix flakes (linux only)
 
-#### Very Stable Release (main)
-- [ ] AUR
+#### Very Stable Release (main, with auto updates)
+- [ ] AUR 
 - [ ] homebrew
 - [ ] nixpkgs (upload)
 
 ### Future Roadmaps
 - [ ] MLE and Memory limit
+- [ ] .deb
+- [ ] .rpm
