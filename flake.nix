@@ -40,14 +40,6 @@
             mkdir -p $out/bin
             install -D ./um $out/bin/um
           '';
-          # shellHook = ''
-          #   export PATH=${pkgs.go}/bin:$PATH
-          #   export PATH=${pkgs.gcc}/bin:$PATH
-          #   export PATH=${pkgs.rustc}/bin:$PATH
-          #   export PATH=${pkgs.python314}/bin:$PATH
-          #   export PATH=${pkgs.bunc}/bin:$PATH
-          #   export PATH=${pkgs.zulu8}/bin:$PATH
-          # '';
         };
     };
 }
