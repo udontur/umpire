@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.13)
 project(umpire LANGUAGES CXX)
 
 find_package(fmt CONFIG REQUIRED)
-find_package(Boost REQUIRED COMPONENTS thread chrono system)
+find_package(Boost REQUIRED COMPONENTS thread chrono system process)
 find_package(ftxui REQUIRED)
 
 include_directories(src)
@@ -14,6 +14,7 @@ target_link_libraries(um PRIVATE
     Boost::thread 
     Boost::chrono
     Boost::system
+    Boost::process
     ftxui::screen
     ftxui::dom
     ftxui::component

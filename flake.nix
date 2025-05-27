@@ -15,8 +15,8 @@
         let 
           pkgs = nixpkgs.legacyPackages.${system};
         in{
-          # The system is not recognized as a variable
-          packages.system.default =
+          #     This  vvv
+          default =
             pkgs.stdenv.mkDerivation {
               # Meta Data
               pname = "umpire";
