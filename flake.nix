@@ -15,7 +15,6 @@
         let 
           pkgs = nixpkgs.legacyPackages.${system};
         in{
-          #     This  vvv
           default =
             pkgs.stdenv.mkDerivation {
               # Meta Data
