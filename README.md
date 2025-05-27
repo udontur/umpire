@@ -1,4 +1,5 @@
 ### Functionality
+- [ ] Time parser (um -t)
 - [x] argument parser
 - [x] compile program
 - [x] path list maker
@@ -13,11 +14,7 @@
     - [ ] Dedicated cache storage (programs and outputs)
 - [ ] FTXUI output
 - [ ] Nix Flake: Add aarch64 and apple
-
-### Documentation
-- [ ] README
-- [ ] help function (the --help or -h)
-- [ ] man page (man umpire)
+- [ ] Symlink um to umpire
 
 ### Multi-language support (but huge pkg size)
 - [x] C++ (Most common)
@@ -31,10 +28,10 @@
 ### Assisted Tools
 - [ ] Template init (um init)
 - [ ] testcase folder converter (um -c)
-    - [ ] inputABC.txt outputABC.txt (input)
-    - [ ] input-ABC.txt output-ABC.txt (input-) 
-    - [ ] ABCin.txt ABCout.txt (in)
-    - [ ] ABC-in.txt ABC-out.txt (in-)
+    - [ ] inputABC.txt outputABC.txt
+    - [ ] input-ABC.txt output-ABC.txt
+    - [ ] ABCin.txt ABCout.txt
+    - [ ] ABC-in.txt ABC-out.txt 
 
 ### Final Testing
 - [ ] Code refactoring (cleaner implementation)
@@ -42,6 +39,11 @@
 - [ ] Output clean up
 - [ ] Folder structures and formatting
 - [ ] Final Testing (please work after refactorring)
+
+### Documentation
+- [ ] README
+- [ ] help function (the --help or -h)
+- [ ] man page (man um, more detail)
 
 ### CI
 - [ ] TestCase checker
