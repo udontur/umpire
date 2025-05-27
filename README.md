@@ -12,7 +12,7 @@
     - [ ] Clear cache function
     - [ ] Dedicated cache storage (programs and outputs)
 - [ ] FTXUI output
-- [ ] Nix Flake: Add aarch64
+- [ ] Nix Flake: Add aarch64 and apple
 
 ### Documentation
 - [ ] README
