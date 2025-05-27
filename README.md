@@ -19,15 +19,14 @@
 - [ ] help function (the --help or -h)
 - [ ] man page (man umpire)
 
-### Multi-language support
-- [x] C++
-- [x] Python
+### Multi-language support (but huge pkg size)
+- [x] C++ (Most common)
+- [x] Python (Common)
 - [x] Java (huge package size)
+- [ ] Kotlin (might add or might not add since java is here)
 - [x] Rust
 - [x] Go
-- [x] JavaScript
-- [ ] C
-- [ ] Kotlin
+- [x] JavaScript (might delete)
 
 ### Assisted Tools
 - [ ] Template init (um init)
