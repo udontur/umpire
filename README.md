@@ -11,7 +11,7 @@
 - [x] Time limit: accept doubles too (store it in milliseconds afterwards)
 - [ ] Program cache handelder
     - [ ] Clear cache function
-    - [ ] Dedicated cache storage (programs and outputs)
+    - [ ] Dedicated cache storage (programs and outputs ```~/.cache/umpire```)
 - [ ] FTXUI output
 - [ ] Nix Flake: Add aarch64 and apple
 - [ ] Symlink um to umpire
