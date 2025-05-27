@@ -1,5 +1,5 @@
 ### Functionality
-- [ ] Time parser (um -t)
+- [x] Time parser (um -t)
 - [x] argument parser
 - [x] compile program
 - [x] path list maker
