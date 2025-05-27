@@ -8,7 +8,7 @@ on:
 
 jobs:
   build-pkg:
-    name: Build Nix package
+    name: Build Nix package (x86_64-linux)
     runs-on: ubuntu-latest
     permissions:
       id-token: write
@@ -17,3 +17,5 @@ jobs:
       - uses: actions/checkout@v4.2.2
       - uses: DeterminateSystems/determinate-nix-action@main # or v3.6.1 to pin to a release
       - run: nix build .
+
+# https://docs.github.com/en/actions/using-github-hosted-runners/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources
