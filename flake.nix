@@ -19,7 +19,7 @@
             pkgs.stdenv.mkDerivation {
               # Meta Data
               pname = "umpire";
-              version = "1.0.0";
+              version = "nightly";
               
               src = self;
 

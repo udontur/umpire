@@ -1,6 +1,6 @@
 ### Functionality
 - [x] Time parser (um -t)
-- [x] argument parser
+- [ ] argument parser (a better one please)
 - [x] compile program
 - [x] path list maker
 - [x] Multithread run case
@@ -15,6 +15,18 @@
     - [ ] Clear cache function
     - [ ] Dedicated cache storage (programs and outputs ```~/.cache/umpire```)
 - [ ] FTXUI output
+- [ ] Add argument: user can specify which folder they can use
+```
+competition
+- a-task
+-- test case
+-- main.cpp
+- b-task
+-- test case
+--main.cpp
+
+judgel b-task
+```
 - [x] Nix Flake: Add aarch64 and apple (make sure to edit githuv actions)
 - [x] Symlink um to umpire (maybe move to cmake)
 
@@ -55,7 +67,8 @@
 
 ### Package Managment
 #### Unstable Release
-- nix flakes (linux only)
+- nix flakes
+
 #### Very Stable Release (main, with auto updates)
 - [ ] AUR 
 - [ ] homebrew
