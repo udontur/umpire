@@ -29,6 +29,8 @@ struct testCase{
     std::string name;
     std::string in;
     std::string out;
+    std::string outPath;
+    double runTime=-1;
     int index;
     bool isTle=0;
     bool isAc=0;
@@ -37,5 +39,10 @@ struct testCase{
 
 int runTimeLimit;
 std::vector<testCase> testCaseList;
+
+bool tleFlag=0;
+
+#define deleteLine "\033[1A\r\033[K"
+
 
 #endif

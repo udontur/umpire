@@ -2,18 +2,16 @@
 #include "global/var.hpp"
 
 #include "components/util.hpp"
-#include "components/cache.hpp"
 #include "components/help.hpp"
 #include "components/error.hpp"
+#include "components/cache.hpp"
 #include "components/runtest.hpp"
 
 using namespace std;
 
 int main(int argc, char* argv[]) {
 
-    fmt::print("testing {}", 1);
     // Argument parsing
-    
     if (argc == 1) {
         // Default time limit
         runTimeLimit = 1000;
@@ -49,7 +47,6 @@ int main(int argc, char* argv[]) {
         return throwError("Code file not found. \nSupported Language: C++, Rust, Go, Java, Pytho, JavaScript");
     }
 
-    // Getting ready
     clearCache();
 
     if(user.isCpp||
@@ -74,7 +71,7 @@ int main(int argc, char* argv[]) {
         if (!isCompiled) {
             return throwError("Cannot compile your code!");
         } else {
-            fmt::print("Compiled!\n");
+            fmt::print("{}Running...\n", deleteLine);
         }
     }
     
@@ -96,13 +93,29 @@ int main(int argc, char* argv[]) {
     // Multitrhead run each case
     boost::thread testCaseThreads[testCaseList.size()];
     for(auto currentTestCase: testCaseList){
-        testCaseThreads[currentTestCase.index]=boost::thread(boost::bind(runTest, currentTestCase.index));  
+        testCaseThreads[currentTestCase.index]=
+            boost::thread(
+                boost::bind(runTest, currentTestCase.index));  
     }
 
     for(auto currentTestCase: testCaseList){
         testCaseThreads[currentTestCase.index].join();
+        std::filesystem::remove(currentTestCase.outPath);
     }
 
+    clearCache();
+
+    //std::filesystem::remove("program");
+
+    // Delete the "Running..." line
+    
+    if(!tleFlag){
+        fmt::print("{}", deleteLine);
+    }else{
+        fmt::print("{}", deleteLine);
+        fmt::print("{}", deleteLine);
+    }
+    
     // Verdict Maker
     for(auto currentTestCase: testCaseList){
         std::string verdict;
@@ -118,7 +131,7 @@ int main(int argc, char* argv[]) {
             verdict="Internal Error";
         }
 
-        fmt::print("{}({}): {}\n", currentTestCase.index, currentTestCase.name, verdict);
+        fmt::print("{}({}): {} (Time: {})\n", currentTestCase.index, currentTestCase.name, verdict, currentTestCase.runTime);
     }
     
     // Element document=hbox({

@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 3.13)
 project(umpire LANGUAGES CXX)
 
+cmake_policy(SET CMP0167 NEW)
+cmake_policy(SET CMP0156 NEW)
+cmake_policy(SET CMP0179 NEW)
+
 find_package(fmt CONFIG REQUIRED)
 find_package(Boost REQUIRED COMPONENTS thread chrono system process)
 find_package(ftxui REQUIRED)

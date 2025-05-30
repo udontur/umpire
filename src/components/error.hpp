@@ -3,7 +3,6 @@
 
 #include "../global/allheader.hpp"
 #include "cache.hpp"
-
 int throwError(std::string errorMessage){
     //helpPage();
     clearCache();

@@ -5,15 +5,15 @@
 - [x] path list maker
 - [x] Multithread run case
 - [x] Case runner
-- [ ] TLE (I am doomed, it still does not work. Hour wasted: 5)
+- [ ] ~~TLE (I am doomed, it still does not work. Hour wasted: 5)~~
 - [x] WA and AC comparer
 - [x] Detect RTE (empty output?)
 - [x] Time limit: accept doubles too (store it in milliseconds afterwards)
-- [ ] Program cache handelder
-    - [ ] Do it before and after the program (and error exits)
-    - [ ] Check if the folder is empty first 
-    - [ ] Clear cache function
-    - [ ] Dedicated cache storage (programs and outputs ```~/.cache/umpire```)
+- [x] Program cache handelder
+    - [x] Do it before and after the program (and error exits)
+    - [x] Check if the folder is empty first 
+    - [x] Clear cache function
+    - [ ] ~~Dedicated cache storage (programs and outputs ```~/.cache/umpire```)~~
 - [ ] FTXUI output
 - [ ] Add argument: user can specify which folder they can use
 ```
@@ -78,3 +78,4 @@ judgel b-task
 - [ ] MLE and Memory limit
 - [ ] .deb
 - [ ] .rpm
+- [ ] Better TLE mechanism

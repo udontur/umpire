@@ -28,6 +28,7 @@
                 cmake
                 pkg-config 
               ];
+              
               buildInputs = with pkgs;[
                 # Libraries
                 fmt
@@ -47,6 +48,8 @@
                 cmake ..
                 cmake --build .
               '';
+
+              #Install
               installPhase = ''
                 mkdir -p $out/bin
                 install -D ./um $out/bin/um
