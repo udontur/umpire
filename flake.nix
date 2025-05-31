@@ -34,13 +34,6 @@
                 fmt
                 boost186
                 ftxui
-                
-                # Compilers
-                gcc # C++
-                python314
-                go
-                zulu8 # Java
-                rustc
               ];
 
               # Build

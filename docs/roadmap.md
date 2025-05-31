@@ -13,8 +13,9 @@
     - [x] Do it before and after the program (and error exits)
     - [x] Check if the folder is empty first 
     - [x] Clear cache function
-    - [ ] ~~Dedicated cache storage (programs and outputs ```~/.cache/umpire```)~~
-- [ ] FTXUI output
+- [x] FTXUI output
+- [ ] FTXUI table color
+- [ ] Final verdict
 - [ ] Add argument: user can specify which folder they can use
 ```
 competition
@@ -56,23 +57,23 @@ um --help
 - [ ] help function (the --help or -h)
 - [ ] man page (man um, more detail)
 ### CI
-- [ ] TestCase checker
+- [ ] TestCase checker (development)
 - [ ] Build checker: GitHub Actions
   - [x] nix flakes / nixpkgs
   - [ ] PKGBUILD (Arch)
   - [ ] homebrew (Apple)
+  - [ ] flatpak
 
 ### Package Managment
 #### Unstable Release
 - nix flakes
 
-#### Stable Release (main, with auto updates)
+#### Stable Release
 - [ ] AUR 
 - [ ] homebrew
-- [ ] nixpkgs (upload)
+- [ ] flatpak
 
 ### Future Roadmaps
 - [ ] MLE and Memory limit
-- [ ] .deb
-- [ ] .rpm
+- [ ] nixpkgs (upload)
 - [ ] Better TLE mechanism
