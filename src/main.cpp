@@ -80,7 +80,7 @@ int main(int argc, char* argv[]) {
     int testCaseIteratorIndex=0;
 
     for(auto currentTestCaseName: pathList){
-        testCase currentTestCase;
+        TestCase currentTestCase;
         currentTestCase.name=currentTestCaseName;
         currentTestCase.in=user.testcaseFolder+"/"+currentTestCase.name+".in";
         currentTestCase.out=user.testcaseFolder+"/"+currentTestCase.name+".out";
@@ -100,7 +100,7 @@ int main(int argc, char* argv[]) {
 
     for(auto currentTestCase: testCaseList){
         testCaseThreads[currentTestCase.index].join();
-        std::filesystem::remove(currentTestCase.outPath);
+        
     }
 
     clearCache();
@@ -115,25 +115,44 @@ int main(int argc, char* argv[]) {
         fmt::print("{}", deleteLine);
         fmt::print("{}", deleteLine);
     }
-    
-    // Verdict Maker
-    for(auto currentTestCase: testCaseList){
-        std::string verdict;
-        if(currentTestCase.isTle){
-            verdict="Time Limit Exceeded";
-        }else if(currentTestCase.isRte){
-            verdict="Runtime Error";
-        }else if(!currentTestCase.isAc){
-            verdict="Wrong Answer";
-        }else if(currentTestCase.isAc){
-            verdict="Accepted";
-        } else{
-            verdict="Internal Error";
-        }
 
-        fmt::print("{}({}): {} (Time: {})\n", currentTestCase.index, currentTestCase.name, verdict, currentTestCase.runTime);
+    // Table creator
+    std::vector<std::vector<std::string>> tableContent;
+    tableContent.push_back({"Name", "Verdict", "Time"});
+    for(auto currentTestCase: testCaseList){
+        //currentTestCase.name
+        //currentTestCase.verdict
+        //currentTestCase.runTime
+        std::vector<std::string> currentRow;
+        
+        currentRow.push_back(currentTestCase.name);
+
+        currentTestCase.verdict=makeVerdict(currentTestCase);\
+        currentRow.push_back(currentTestCase.verdict);
+        
+        std::string runTime_string=makeRunTime(currentTestCase.runTime, currentTestCase.isTle);
+        currentRow.push_back(runTime_string);
+        
+
+        tableContent.push_back(currentRow);
     }
-    
+
+    auto table = ftxui::Table(tableContent);
+    table.SelectAll().Border(ftxui::LIGHT);
+    table.SelectAll().SeparatorVertical(ftxui::LIGHT);
+
+    table.SelectRow(0).Border(ftxui::DOUBLE);
+    table.SelectRow(0).Decorate(ftxui::bold);
+
+    auto screen=ftxui::Screen::Create(
+        ftxui::Dimension::Full(),
+        ftxui::Dimension::Fixed(testCaseList.size()+4)
+    );
+
+    auto document=table.Render();
+    ftxui::Render(screen, document);
+    screen.Print();
+
     // Element document=hbox({
     //     text("left") | border,
     //     text("center") | border | flex,

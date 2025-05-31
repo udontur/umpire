@@ -25,11 +25,12 @@ class User {
  
 User user;
 
-struct testCase{
+struct TestCase{
     std::string name;
     std::string in;
     std::string out;
     std::string outPath;
+    std::string verdict;
     double runTime=-1;
     int index;
     bool isTle=0;
@@ -38,7 +39,7 @@ struct testCase{
 };
 
 int runTimeLimit;
-std::vector<testCase> testCaseList;
+std::vector<TestCase> testCaseList;
 
 bool tleFlag=0;
 

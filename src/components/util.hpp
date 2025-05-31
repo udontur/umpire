@@ -50,6 +50,43 @@ std::vector<std::string> getPathList(std::string directory){
     return pathList;
 }
 
+std::string makeVerdict(TestCase currentTestCase){
+    std::string resultVerdict;
+    if(currentTestCase.isTle){
+        resultVerdict="Time Limit Exceeded";
+    }else if(currentTestCase.isRte){
+        resultVerdict="Runtime Error";
+    }else if(!currentTestCase.isAc){
+        resultVerdict="Wrong Answer";
+    }else if(currentTestCase.isAc){
+        resultVerdict="Accepted";
+    } else{
+        resultVerdict="Internal Error";
+    }
+    return resultVerdict;
+}
+
+std::string makeRunTime(int runTime, bool isTle){
+    std::string resultRunTime;
+    if(isTle){
+        std::string runTimeLimit_string=std::to_string(
+            static_cast<double>(runTimeLimit)
+                /1000.0);
+        runTimeLimit_string=runTimeLimit_string.substr(0, 5);
+        resultRunTime=">"+runTimeLimit_string+"s";
+    }else{
+        resultRunTime=std::to_string(
+            static_cast<double>(runTime)
+                /1000.0);
+        resultRunTime=resultRunTime.substr(0, 5);
+        resultRunTime=resultRunTime+"s";
+    }
+    return resultRunTime;
+}
+
+
+
+
 bool mainExists(){
     if(std::filesystem::exists("main.cpp") == true){
         user.isCpp=1;

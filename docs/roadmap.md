@@ -5,7 +5,7 @@
 - [x] path list maker
 - [x] Multithread run case
 - [x] Case runner
-- [ ] ~~TLE (I am doomed, it still does not work. Hour wasted: 5)~~
+- [ ] ~~TLE (I am doomed, it still does not work. Hour wasted: 5)~~ manual cancel
 - [x] WA and AC comparer
 - [x] Detect RTE (empty output?)
 - [x] Time limit: accept doubles too (store it in milliseconds afterwards)
@@ -25,7 +25,9 @@ competition
 -- test case
 --main.cpp
 
-judgel b-task
+um b-task -t 3.5
+um -t 3.5 b-task
+um --help
 ```
 - [x] Nix Flake: Add aarch64 and apple (make sure to edit githuv actions)
 - [x] Symlink um to umpire (maybe move to cmake)
@@ -34,18 +36,13 @@ judgel b-task
 - [x] C++ (Most common)
 - [x] Python (Common)
 - [x] Java (huge package size)
-- [ ] Kotlin (might add or might not add since java is here)
+- [ ] ~~Kotlin (might add or might not add since java is here)~~
 - [x] Rust
 - [x] Go
 - [x] ~~JavaScript (might delete)~~
 
 ### Assisted Tools
 - [ ] Template init (um init)
-- [ ] testcase folder converter (um -c)
-    - [ ] inputABC.txt outputABC.txt
-    - [ ] input-ABC.txt output-ABC.txt
-    - [ ] ABCin.txt ABCout.txt
-    - [ ] ABC-in.txt ABC-out.txt 
 
 ### Final Testing
 - [ ] Code refactoring (cleaner implementation)
@@ -69,7 +66,7 @@ judgel b-task
 #### Unstable Release
 - nix flakes
 
-#### Very Stable Release (main, with auto updates)
+#### Stable Release (main, with auto updates)
 - [ ] AUR 
 - [ ] homebrew
 - [ ] nixpkgs (upload)

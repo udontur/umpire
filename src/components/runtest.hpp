@@ -14,7 +14,7 @@ std::string rand64() {
 }
 
 bool compareOutput(int currentTestCaseIndex, std::string outPath){
-    testCase& currentTestCase=testCaseList[currentTestCaseIndex];
+    TestCase& currentTestCase=testCaseList[currentTestCaseIndex];
     
     std::filesystem::path samplePath=currentTestCase.out;
     std::filesystem::path userPath=outPath;
@@ -44,7 +44,7 @@ bool compareOutput(int currentTestCaseIndex, std::string outPath){
 
 void runTest(int currentTestCaseIndex){
 
-    testCase& currentTestCase=testCaseList[currentTestCaseIndex];
+    TestCase& currentTestCase=testCaseList[currentTestCaseIndex];
     currentTestCase.outPath="./"+rand64()+".txt";
 
     std::string prefix="./"+user.program;
@@ -72,8 +72,8 @@ void runTest(int currentTestCaseIndex){
         if(!tleFlag){
             tleFlag=1;
             fmt::print("{}", deleteLine);
-            fmt::print("Please press Ctrl + C as your program has exceeded the time limit.\n");
-            fmt::print("This will be fixed in the stable release.\n");
+            fmt::print(fmt::fg(fmt::color::yellow), "Please press Ctrl + C as your program has exceeded the time limit.\n");
+            std::filesystem::remove(currentTestCase.outPath);
         }
     }
 
@@ -83,6 +83,8 @@ void runTest(int currentTestCaseIndex){
                 .count();
     
     currentTestCase.isAc=compareOutput(currentTestCaseIndex, currentTestCase.outPath);
+
+    std::filesystem::remove(currentTestCase.outPath);
 
     return;
 }
