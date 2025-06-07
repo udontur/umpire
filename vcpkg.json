@@ -1,0 +1,10 @@
+{
+  "dependencies": [
+    "boost-chrono",
+    "boost-process",
+    "boost-system",
+    "boost-thread",
+    "fmt",
+    "ftxui"
+  ]
+}

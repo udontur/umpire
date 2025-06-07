@@ -1,5 +1,5 @@
 {
-  description = "A Fully-Featured Offline Competitive Programming CLI Judge";
+  description = "github:udontur/umpire Nix flake";
   inputs.nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
   outputs = { self, nixpkgs }:
     let
@@ -26,15 +26,17 @@
               nativeBuildInputs = with pkgs;[
                 # Build tools
                 cmake
-                pkg-config 
+                git
+                vcpkg
+                pkg-config
               ];
               
-              buildInputs = with pkgs;[
-                # Libraries
-                fmt
-                boost186
-                ftxui
-              ];
+              # buildInputs = with pkgs;[
+              #   # Libraries
+              #   fmt
+              #   boost186
+              #   ftxui
+              # ];
 
               # Build
               buildPhase = ''
@@ -44,9 +46,13 @@
 
               #Install
               installPhase = ''
+                runHook preInstall
+
                 mkdir -p $out/bin
-                install -D ./um $out/bin/um
+                install -Dm755 ./um $out/bin/um
                 ln -s $out/bin/um $out/bin/umpire
+
+                runHook postInstall
               '';
             };
         }
