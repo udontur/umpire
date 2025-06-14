@@ -15,7 +15,7 @@
 Writing...
 DEMO VIDEO
 
-# 📥 Installation (Linux and MacOS)
+
 ## ⭐ Prerequisites
 To avoid large package size, please install the compilers that you use:
 ```nix
@@ -25,10 +25,18 @@ go # Golang
 zulu # Java
 rustc # Rust
 ```
-
-## 🔵 Arch Linux (AUR)
-## 🍺 MacOS (homebrew)
-## ❄️ Nix (Linux and MacOS)
+## 📥 Installation (Linux and MacOS)
+### 🍺 homebrew (MacOS)
+`umpire` is available in the Homebrew formulae
+```sh
+brew install umpire
+```
+### 🔵 Arch Linux (AUR)
+`umpire` is available in the Arch User Repository (AUR)
+```sh
+yay -S umpire
+```
+### ❄️ Nix (Linux and MacOS)
 1. Add the url to your ```flake.nix``` input
 ```nix
 umpire.url = "github:udontur/umpire";
@@ -37,10 +45,9 @@ umpire.url = "github:udontur/umpire";
 ```nix
 inputs.umpire.packages."${system}".default
 ```
-3. Rebuild your configuration with nix flakes enabled.
-## APT and RPM
+3. Rebuild your configuration with Nix flakes enabled.
 
-# Usage
+<!-- # Usage -->
 
-# ⚙️ Development
+## ⚙️ Development
 [See the development docs](docs/development.md)

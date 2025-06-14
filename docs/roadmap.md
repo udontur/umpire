@@ -17,9 +17,6 @@
 - [ ] FTXUI table color
 - [ ] Final verdict
 - [ ] Add argument: user can specify which folder they can use
-- [x] Bazel build
-- [ ] Bazel + Nix (Nix is sandbox and Bazel is not :c)
-- [ ] Docker
 ```
 competition
 - a-task
@@ -33,7 +30,7 @@ um b-task -t 3.5
 um -t 3.5 b-task
 um --help
 ```
-- [x] Nix Flake: Add aarch64 and apple (make sure to edit githuv actions)
+- [x] Nix Flake: Add aarch64 and apple (make sure to edit github actions)
 - [x] Symlink um to umpire (maybe move to cmake)
 
 ### Multi-language support (but huge pkg size)
@@ -45,8 +42,12 @@ um --help
 - [x] Go
 - [x] ~~JavaScript (might delete)~~
 
-### Assisted Tools
-- [ ] Template init (um init)
+### Build
+- [x] Bazel build
+- [ ] Bazel + Nix (Nix is sandbox and Bazel is not :c)
+- [ ] Bazel + homebrew
+- [ ] Bazel + PKGBUILD
+- [ ] Docker
 
 ### Final Testing
 - [ ] Code refactoring (cleaner implementation)
@@ -59,13 +60,14 @@ um --help
 - [ ] README
 - [ ] help function (the --help or -h)
 - [ ] man page (man um, more detail)
+
 ### CI
 - [ ] TestCase checker (development)
 - [ ] Build checker: GitHub Actions
-  - [x] nix flakes / nixpkgs
+  - [x] Bazel
+  - [x] nix flakes
   - [ ] PKGBUILD (Arch)
   - [ ] homebrew (Apple)
-  - [ ] flatpak
 
 ### Package Managment
 #### Unstable Release
@@ -74,9 +76,9 @@ um --help
 #### Stable Release
 - [ ] AUR 
 - [ ] homebrew
-- [ ] flatpak
 
 ### Future Roadmaps
 - [ ] MLE and Memory limit
 - [ ] nixpkgs (upload)
+- [ ] APT and RPM
 - [ ] Better TLE mechanism
