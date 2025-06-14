@@ -14,5 +14,6 @@ jobs:
     id-token: write
     contents: read
   steps:
+    - uses: actions/checkout@v4.2.2
     - uses: ngalaiko/bazel-action@2.0.0
     - run: bazel build //src:main --enable_bzlmod --copt=-std=c++17
