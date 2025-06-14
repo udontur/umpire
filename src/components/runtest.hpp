@@ -60,7 +60,7 @@ void runTest(int currentTestCaseIndex){
 
     auto runSystem=[&runStart, &runStop, &command](){
         runStart=std::chrono::high_resolution_clock::now();
-        int errorCode=system(command.c_str());
+        // int errorCode=system(command.c_str());
         runStop=std::chrono::high_resolution_clock::now();
     };
     

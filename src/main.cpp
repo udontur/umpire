@@ -7,8 +7,6 @@
 #include "components/cache.hpp"
 #include "components/runtest.hpp"
 
-using namespace std;
-
 int main(int argc, char* argv[]) {
 
     // Argument parsing
@@ -28,7 +26,7 @@ int main(int argc, char* argv[]) {
         // Flags: -t
         if (!strcmp(argv[1], "-t") == true) {
             try {
-                runTimeLimit = stod(argv[2])*1000;
+                runTimeLimit = std::stod(argv[2])*1000;
             } catch (...) {
                 return throwError("Time limit must be an number.");
             }
@@ -40,7 +38,7 @@ int main(int argc, char* argv[]) {
     }
 
     // File system requirements
-    if (filesystem::exists("testcase") == false) {
+    if (std::filesystem::exists("testcase") == false) {
         return throwError("\"testcase\" folder not found.");
     }
     if(!mainExists()){
@@ -64,7 +62,7 @@ int main(int argc, char* argv[]) {
         // Python: python3 main.py
         // JavaScript: bun run main.js
         
-        auto compileThread = async(runCompile);
+        auto compileThread = std::async(runCompile);
         fmt::print("Compiling program...\n");
         bool isCompiled = compileThread.get();
 

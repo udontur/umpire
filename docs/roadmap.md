@@ -1,14 +1,11 @@
 ### Functionality
 - [x] Time parser (um -t)
-- [ ] argument parser [a better one please)](https://github.com/p-ranav/argparse)
+- [ ] argument parser [(a better one please)](https://github.com/p-ranav/argparse)
 - [x] compile program
 - [x] path list maker
 - [x] Multithread run case
 - [x] Case runner
 - [x] ~~TLE (I am doomed, it still does not work. Hour wasted: 5)~~ manual cancel
-
-The problem is that you use system to execute the external program. This does a fork to create a new process for the shell to run the program (which will in turn fork again for the program itself). That means the pid you have is twice removed from the actual external program. You need to use one of the exec function to execute the external program.
-
 - [x] WA and AC comparer
 - [x] Detect RTE (empty output?)
 - [x] Time limit: accept doubles too (store it in milliseconds afterwards)
@@ -20,6 +17,7 @@ The problem is that you use system to execute the external program. This does a 
 - [ ] FTXUI table color
 - [ ] Final verdict
 - [ ] Add argument: user can specify which folder they can use
+- [ ] Bazel build
 ```
 competition
 - a-task

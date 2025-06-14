@@ -1,0 +1,12 @@
+module(
+    name="umpire",
+    version="1.0",
+)
+
+bazel_dep(name = "fmt", version = "11.2.0")
+bazel_dep(name = "ftxui", version = "6.1.9")
+
+bazel_dep(name = "boost.thread", version = "1.87.0")
+bazel_dep(name = "boost.chrono", version = "1.87.0")
+bazel_dep(name = "boost.system", version = "1.87.0")
+bazel_dep(name = "boost.process", version = "1.87.0")

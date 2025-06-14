@@ -1,0 +1,46 @@
+cc_library(
+    name = "global",
+    hdrs = [
+		"global/allheader.hpp",
+		"global/var.hpp",
+	],
+	
+    visibility = ["//visibility:public"],
+)
+
+cc_library(
+    name = "component",
+    hdrs = [
+		"components/cache.hpp",
+		"components/error.hpp",
+		"components/help.hpp",
+		"components/runtest.hpp",
+		"components/util.hpp",
+	],
+	
+	deps = [":global"],
+    visibility = ["//visibility:public"],
+)
+
+cc_binary(
+    name="main",
+	srcs=["main.cpp"],
+	deps = [
+		#local
+		":global",
+		":component",
+
+        #Others
+        "@fmt",
+
+		"@ftxui//:component",
+        "@ftxui//:dom",
+        "@ftxui//:screen",
+        
+		#Boost
+		"@boost.thread",
+		"@boost.chrono",
+		"@boost.system",
+		"@boost.process",
+	],
+)

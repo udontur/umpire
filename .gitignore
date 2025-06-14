@@ -33,6 +33,11 @@
 build
 result
 
+bazel-bin
+bazel-out
+bazel-testlogs
+bazel-umpire
+
 test/ac/program
 test/ac/um
 test/ca/program
@@ -47,3 +52,4 @@ test/tle/program
 test/tle/um
 test/wa/program
 test/wa/um
+

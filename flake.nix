@@ -24,24 +24,12 @@
               src = self;
 
               nativeBuildInputs = with pkgs;[
-                # Build tools
-                cmake
-                git
-                vcpkg
-                pkg-config
+                bazel
               ];
-              
-              # buildInputs = with pkgs;[
-              #   # Libraries
-              #   fmt
-              #   boost186
-              #   ftxui
-              # ];
 
-              # Build
+              # Build (Clean: bazel clean --expunge)
               buildPhase = ''
-                cmake ..
-                cmake --build .
+                bazel build //src:main --enable_bzlmod --copt=-std=c++17
               '';
 
               #Install
@@ -49,7 +37,7 @@
                 runHook preInstall
 
                 mkdir -p $out/bin
-                install -Dm755 ./um $out/bin/um
+                install -Dm755 ./bazel-bin/src/main $out/bin/um
                 ln -s $out/bin/um $out/bin/umpire
 
                 runHook postInstall

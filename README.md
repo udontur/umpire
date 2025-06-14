@@ -67,3 +67,4 @@ Run the Test Script to check the application against the test cases
 ```
 > [!NOTE]
 > Pay attention to the TLE test case, you will need to manually cancel it using `Ctrl + C`. 
+
