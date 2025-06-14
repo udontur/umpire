@@ -30,6 +30,8 @@
 *.exe
 *.app
 
+.vscode
+
 build
 result
 

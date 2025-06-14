@@ -24,7 +24,7 @@
               src = self;
 
               nativeBuildInputs = with pkgs;[
-                bazel
+                bazel_7
                 gcc
               ];
 
@@ -35,13 +35,13 @@
 
               #Install
               installPhase = ''
-                
+                runHook preInstall
 
-                
+                sudo mkdir -p $out/bin
                 install -Dm755 ./bazel-bin/src/main $out/bin/um
                 ln -s $out/bin/um $out/bin/umpire
 
-                
+                runHook postInstall
               '';
             };
         }

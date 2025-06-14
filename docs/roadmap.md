@@ -18,6 +18,7 @@
 - [ ] Final verdict
 - [ ] Add argument: user can specify which folder they can use
 - [x] Bazel build
+- [ ] Bazel + Nix (Nix is sandbox and Bazel is not :c)
 - [ ] Docker
 ```
 competition
