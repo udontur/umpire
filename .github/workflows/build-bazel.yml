@@ -1,4 +1,4 @@
-name: Build Packages (Nix)
+name: Build using Bazel
 
 on:
   pull_request:
@@ -7,53 +7,12 @@ on:
     branches: [main]
 
 jobs:
-
-  # Nix Flakes, x86_64 Linux
-  nix-flakes-x86_64-linux:
-    name: Build Nix flakes (x86_64-linux)
+  bazel-build:
+    name: Build using Bazel
     runs-on: ubuntu-24.04
-    permissions:
-      id-token: write
-      contents: read
-    steps:
-      - uses: actions/checkout@v4.2.2
-      - uses: DeterminateSystems/determinate-nix-action@main
-      - run: nix build .
-
-  # Nix Flakes, arm64 Linux
-  nix-flakes-aarch64-linux:
-    name: Build Nix flakes (aarch64-linux)
-    runs-on: ubuntu-24.04-arm
-    permissions:
-      id-token: write
-      contents: read
-    steps:
-      - uses: actions/checkout@v4.2.2
-      - uses: DeterminateSystems/determinate-nix-action@main
-      - run: nix build .
-
-# Apple GitHub actions is eating my credits (if the above 2 builds, i will probably build on apple)
-
-  # # Nix Flakes, x86_64 Apple
-  # nix-flakes-x86_64-darwin:
-  #   name: Build Nix flakes (x86_64-darwin)
-  #   runs-on: macos-13
-  #   permissions:
-  #     id-token: write
-  #     contents: read
-  #   steps:
-  #     - uses: actions/checkout@v4.2.2
-  #     - uses: DeterminateSystems/determinate-nix-action@main
-  #     - run: nix build .
-
-  # # Nix Flakes, arm64 Apple
-  # nix-flakes-aarch64-darwin:
-  #   name: Build Nix flakes (aarch64-darwin)
-  #   runs-on: macos-15
-  #   permissions:
-  #     id-token: write
-  #     contents: read
-  #   steps:
-  #     - uses: actions/checkout@v4.2.2
-  #     - uses: DeterminateSystems/determinate-nix-action@main
-  #     - run: nix build .
+  permissions:
+    id-token: write
+    contents: read
+  steps:
+    - uses: ngalaiko/bazel-action@2.0.0
+    - run: bazel build //src:main --enable_bzlmod --copt=-std=c++17
