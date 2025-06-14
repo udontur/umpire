@@ -1,4 +1,4 @@
-name: Build using Nix
+name: Build using Nix flakes and Bazel
 
 on:
   pull_request:
@@ -10,7 +10,7 @@ jobs:
 
   # Nix Flakes, x86_64 Linux
   nix-flakes-x86_64-linux:
-    name: Nix flakes (x86_64-linux)
+    name: Linux x86_64
     runs-on: ubuntu-24.04
     permissions:
       id-token: write
@@ -22,7 +22,7 @@ jobs:
 
   # Nix Flakes, arm64 Linux
   nix-flakes-aarch64-linux:
-    name: Nix flakes (aarch64-linux)
+    name: Linux aarch64
     runs-on: ubuntu-24.04-arm
     permissions:
       id-token: write
