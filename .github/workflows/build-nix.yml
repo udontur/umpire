@@ -1,4 +1,4 @@
-name: Build Packages (Nix)
+name: Build using Nix
 
 on:
   pull_request:
