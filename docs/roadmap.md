@@ -17,7 +17,8 @@
 - [ ] FTXUI table color
 - [ ] Final verdict
 - [ ] Add argument: user can specify which folder they can use
-- [ ] Bazel build
+- [x] Bazel build
+- [ ] Docker
 ```
 competition
 - a-task

@@ -19,7 +19,7 @@ DEMO VIDEO
 ## ⭐ Prerequisites
 To avoid large package size, please install the compilers that you use:
 ```nix
-gcc # C++
+gcc # C++, Installed by default
 python3 # Python
 go # Golang
 zulu # Java
@@ -38,33 +38,9 @@ umpire.url = "github:udontur/umpire";
 inputs.umpire.packages."${system}".default
 ```
 3. Rebuild your configuration with nix flakes enabled.
-## 🐧 Other Linux (flatpak)
+## APT and RPM
 
 # Usage
 
 # ⚙️ Development
-## 🛠️ Build the package
-1. Enter the nix shell
-```sh
-nix develop
-```
-2. Build the package using Nix
-```sh
-nix build
-```
-3. Run the built binary
-```sh
-nix run # Also builds the package
-```
-## 📝 Test Script
-Test cases are located at `/test`.
-```sh
-cd test
-```
-Run the Test Script to check the application against the test cases
-```sh
-./test.sh
-```
-> [!NOTE]
-> Pay attention to the TLE test case, you will need to manually cancel it using `Ctrl + C`. 
-
+[See the development docs](docs/development.md)

@@ -25,6 +25,7 @@
 
               nativeBuildInputs = with pkgs;[
                 bazel
+                gcc
               ];
 
               # Build (Clean: bazel clean --expunge)
@@ -34,13 +35,13 @@
 
               #Install
               installPhase = ''
-                runHook preInstall
+                
 
-                mkdir -p $out/bin
+                
                 install -Dm755 ./bazel-bin/src/main $out/bin/um
                 ln -s $out/bin/um $out/bin/umpire
 
-                runHook postInstall
+                
               '';
             };
         }

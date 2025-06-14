@@ -8,7 +8,7 @@ array=("ac" "ca" "case" "nom" "rte" "tle" "wa" "go" "java" "python" "rust")
 for name in "${array[@]}"
 do
     echo -e "\033[93m!!!$name test STARTED!!!\e[0m"
-    sudo cp -p result/bin/um $name/um
+    sudo cp -p ../bazel-bin/src/main $name/um
     cd $name
     ./um
     cd -
