@@ -8,7 +8,7 @@ on:
 
 jobs:
   bazel-build:
-    name: Bazel
+    name: Linux
     runs-on: ubuntu-24.04
     permissions:
       id-token: write
