@@ -125,13 +125,13 @@ int main(int argc, char* argv[]) {
         
         currentRow.push_back(currentTestCase.name);
 
-        currentTestCase.verdict=makeVerdict(currentTestCase);\
+        currentTestCase.verdict=makeVerdict(currentTestCase);
         currentRow.push_back(currentTestCase.verdict);
         
+
         std::string runTime_string=makeRunTime(currentTestCase.runTime, currentTestCase.isTle);
         currentRow.push_back(runTime_string);
         
-
         tableContent.push_back(currentRow);
     }
 

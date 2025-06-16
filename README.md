@@ -2,7 +2,7 @@
 <div align="center">
   <h1 align="center">WORK IN PROGRESS Umpire</h3>
   <p align="center">
-    ⚖️ A Fully-Featured Offline Competitive Programming CLI Judge 
+    ⚖️ A blazing fast Competitive Programming CLI tool
     <br />
     <br />
     <a href="https://github.com/udontur/judgel/issues/new">Report Bug</a>
@@ -26,16 +26,6 @@ zulu # Java
 rustc # Rust
 ```
 ## 📥 Installation (Linux and MacOS)
-### 🍺 homebrew (MacOS)
-`umpire` is available in the Homebrew formulae
-```sh
-brew install umpire
-```
-### 🔵 Arch Linux (AUR)
-`umpire` is available in the Arch User Repository (AUR)
-```sh
-yay -S umpire
-```
 ### ❄️ Nix (Linux and MacOS)
 1. Add the url to your ```flake.nix``` input
 ```nix
@@ -50,4 +40,4 @@ inputs.umpire.packages."${system}".default
 <!-- # Usage -->
 
 ## ⚙️ Development
-[See the development docs](docs/development.md)
+[See development docs](docs/development.md)
