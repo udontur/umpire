@@ -16,7 +16,6 @@
 - [x] FTXUI output
 - [ ] FTXUI table color
 - [ ] Final verdict
-- [ ] All output clean up
 - [ ] Add argument: user can specify which folder they can use
 ```
 competition
@@ -33,6 +32,8 @@ um --help
 ```
 - [x] Nix Flake: Add aarch64 and apple (make sure to edit github actions)
 - [x] Symlink um to umpire 
+- [ ] Help function
+- [ ] All output clean up
 
 ### Multi-language support (but huge pkg size)
 - [x] C++ (Most common)
@@ -44,8 +45,8 @@ um --help
 - [x] ~~JavaScript (might delete)~~
 
 ### Build
-- [x] Full CMake and Make build
-- [ ] CMake + Nix (Nix is sandbox so Cmake can't FetchContent)
+- [x] ~~Full CMake and Make build~~
+- [x] CMake + Nix
 - [ ] CMake + homebrew (MacOS Apple)
 - [ ] CMake + PKGBUILD (Arch Linux AUR)
 
@@ -62,7 +63,7 @@ um --help
 ### CI
 - [ ] TestCase checker (development)
 - [ ] Build checker: GitHub Actions
-  - [ ] CMake
+  - [ ] ~CMake~
   - [x] nix flakes
   - [ ] PKGBUILD (Arch)
   - [ ] homebrew (Apple)
