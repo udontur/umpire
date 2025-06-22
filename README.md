@@ -15,7 +15,6 @@
 Writing...
 DEMO VIDEO
 
-
 ## ⭐ Prerequisites
 To avoid large package size, please install the compilers that you use:
 ```nix
@@ -37,6 +36,7 @@ inputs.umpire.packages."${system}".default
 ```
 3. Rebuild your configuration with Nix flakes enabled.
 
+<!-- Add support for Homebrew and AUR -->
 <!-- # Usage -->
 
 ## ⚙️ Development

@@ -47,7 +47,6 @@ um --help
 - [ ] Bazel + Nix (Nix is sandbox and Bazel is not :c)
 - [ ] Bazel + homebrew
 - [ ] Bazel + PKGBUILD
-- [ ] Docker
 
 ### Final Testing
 - [ ] Code refactoring (cleaner implementation)
@@ -57,7 +56,7 @@ um --help
 - [ ] Final Testing (please work after refactorring)
 
 ### Documentation
-- [ ] README
+- [ ] README (with badges)
 - [ ] help function (the --help or -h)
 - [ ] man page (man um, more detail)
 
@@ -80,5 +79,4 @@ um --help
 ### Future Roadmaps
 - [ ] MLE and Memory limit
 - [ ] nixpkgs (upload)
-- [ ] APT and RPM
 - [ ] Better TLE mechanism

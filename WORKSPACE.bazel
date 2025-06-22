@@ -1,0 +1,14 @@
+# load the http_archive rule itself
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+# load rules_nixpkgs
+http_archive(
+    name = "io_tweag_rules_nixpkgs",
+    strip_prefix = "rules_nixpkgs-0.11.1",
+    urls = ["https://github.com/tweag/rules_nixpkgs/releases/download/v0.11.1/rules_nixpkgs-0.11.1.tar.gz"],
+)
+
+# load everything that rules_nixpkgs rules need to work
+load("@io_tweag_rules_nixpkgs//nixpkgs:repositories.bzl", "rules_nixpkgs_dependencies")
+
+rules_nixpkgs_dependencies()
