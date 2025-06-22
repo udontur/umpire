@@ -7,8 +7,6 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <boost/thread.hpp>
-#include <boost/chrono.hpp>
-#include <boost/process.hpp>
 #include <ftxui/dom/elements.hpp>
 #include <ftxui/screen/screen.hpp>
 #include <ftxui/dom/table.hpp>

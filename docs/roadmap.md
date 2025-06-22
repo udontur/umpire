@@ -16,6 +16,7 @@
 - [x] FTXUI output
 - [ ] FTXUI table color
 - [ ] Final verdict
+- [ ] All output clean up
 - [ ] Add argument: user can specify which folder they can use
 ```
 competition
@@ -31,7 +32,7 @@ um -t 3.5 b-task
 um --help
 ```
 - [x] Nix Flake: Add aarch64 and apple (make sure to edit github actions)
-- [x] Symlink um to umpire (maybe move to cmake)
+- [x] Symlink um to umpire 
 
 ### Multi-language support (but huge pkg size)
 - [x] C++ (Most common)
@@ -43,27 +44,25 @@ um --help
 - [x] ~~JavaScript (might delete)~~
 
 ### Build
-- [x] Bazel build
-- [ ] Bazel + Nix (Nix is sandbox and Bazel is not :c)
-- [ ] Bazel + homebrew
-- [ ] Bazel + PKGBUILD
+- [x] Full CMake and Make build
+- [ ] CMake + Nix (Nix is sandbox so Cmake can't FetchContent)
+- [ ] CMake + homebrew (MacOS Apple)
+- [ ] CMake + PKGBUILD (Arch Linux AUR)
 
 ### Final Testing
 - [ ] Code refactoring (cleaner implementation)
 - [ ] Functionality clean up
-- [ ] Output clean up
 - [ ] Folder structures and formatting
 - [ ] Final Testing (please work after refactorring)
 
 ### Documentation
-- [ ] README (with badges)
+- [ ] README (with badges + demo + clearn usage and installtion guide)
 - [ ] help function (the --help or -h)
-- [ ] man page (man um, more detail)
 
 ### CI
 - [ ] TestCase checker (development)
 - [ ] Build checker: GitHub Actions
-  - [x] Bazel
+  - [ ] CMake
   - [x] nix flakes
   - [ ] PKGBUILD (Arch)
   - [ ] homebrew (Apple)
@@ -73,8 +72,8 @@ um --help
 - nix flakes
 
 #### Stable Release
-- [ ] AUR 
-- [ ] homebrew
+- [ ] AUR (PKGBUILD Arch Linux) 
+- [ ] homebrew (MacOS)
 
 ### Future Roadmaps
 - [ ] MLE and Memory limit

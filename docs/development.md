@@ -1,9 +1,20 @@
 ## 🛠️ Build the package
-`umpire` is built using Bazel
+`umpire` is built using Cmake and Make.
+
+1. Make the `build` directory
 ```sh
-bazel build //src:main --enable_bzlmod --copt=-std=c++17
+mkdir -p build
+cd build
 ```
-The resulting binary is located at `bazel-bin/src/main`
+2. Make the CMake files
+```sh
+cmake ..
+```
+3. Build using CMake and Make
+```sh
+cmake --build .
+```
+The resulting binary is located at `./um`.
 
 ## 📝 Test Script
 Test cases are located at `/test`.
