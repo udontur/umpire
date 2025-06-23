@@ -11,7 +11,7 @@
   </p>
 </div>
 
-## About
+## ⭐️ About
 Writing...
 DEMO VIDEO
 
@@ -27,16 +27,18 @@ Umpire is available for both Linux (Nix and AUR) and MacOS (homebrew and Nix).
 > rustc # Rust
 > ```
 ### ❄️ Nix (Linux and MacOS)
-1. Add the url to your ```flake.nix``` input
+1. Add the url to your ```flake.nix``` input:
 ```nix
 inputs = {
   umpire.url = "github:udontur/umpire";
+  # ...
 };
 ```
-2. Add the pacakge in ```environment.systemPackages```
+2. Add the pacakge in ```environment.systemPackages```:
 ```nix
 environment.systemPackages = with pkgs; [
   inputs.umpire.packages."${system}".default
+  # ...
 ];
 ```
 3. Rebuild your configuration with Nix flakes enabled.
