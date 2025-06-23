@@ -8,7 +8,7 @@ project(
 )
 
 find_package(fmt REQUIRED)
-find_package(Boost REQUIRED COMPONENTS thread chrono system process)
+find_package(Boost 1.86 REQUIRED COMPONENTS thread)
 find_package(ftxui REQUIRED)
 
 include_directories(src)
@@ -18,9 +18,6 @@ add_executable(umpire src/main.cpp)
 target_link_libraries(umpire PRIVATE 
     fmt::fmt 
     Boost::thread 
-    Boost::chrono
-    Boost::system
-    Boost::process
     ftxui::screen
     ftxui::dom
     ftxui::component

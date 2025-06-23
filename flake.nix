@@ -1,6 +1,6 @@
 {
   description = "github:udontur/umpire Nix flake";
-  inputs.nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+  inputs.nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-24.11";
   outputs = { self, nixpkgs }:
     let
       supportedSystems = [
@@ -27,12 +27,13 @@
             nativeBuildInputs = with pkgs;[
               cmake
               gnumake
+              gcc
             ];
 
             buildInputs = with pkgs;[
               ftxui
               fmt
-              boost
+              boost186
             ];
 
             cmakeFlags = [ "-DCMAKE_BUILD_TYPE=Release" ];

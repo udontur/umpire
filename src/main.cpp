@@ -42,7 +42,7 @@ int main(int argc, char* argv[]) {
         return throwError("\"testcase\" folder not found.");
     }
     if(!mainExists()){
-        return throwError("Code file not found. \nSupported Language: C++, Rust, Go, Java, Pytho, JavaScript");
+        return throwError("Code file not found. \nSupported Language: C++, Rust, Go, Java, Python.");
     }
 
     clearCache();
@@ -60,7 +60,6 @@ int main(int argc, char* argv[]) {
 
         // Interpreter
         // Python: python3 main.py
-        // JavaScript: bun run main.js
         
         auto compileThread = std::async(runCompile);
         fmt::print("Compiling program...\n");
@@ -79,12 +78,16 @@ int main(int argc, char* argv[]) {
 
     for(auto currentTestCaseName: pathList){
         TestCase currentTestCase;
-        currentTestCase.name=currentTestCaseName;
-        currentTestCase.in=user.testcaseFolder+"/"+currentTestCase.name+".in";
-        currentTestCase.out=user.testcaseFolder+"/"+currentTestCase.name+".out";
-        currentTestCase.index=testCaseIteratorIndex;
-        testCaseIteratorIndex++;
 
+        currentTestCase.name=currentTestCaseName;
+        
+        currentTestCase.in=user.testcaseFolder+"/"+currentTestCase.name+".in";
+
+        currentTestCase.out=user.testcaseFolder+"/"+currentTestCase.name+".out";
+
+        currentTestCase.index=testCaseIteratorIndex;
+        
+        testCaseIteratorIndex++;
         testCaseList.push_back(currentTestCase);
     }
     
@@ -97,38 +100,29 @@ int main(int argc, char* argv[]) {
     }
 
     for(auto currentTestCase: testCaseList){
-        testCaseThreads[currentTestCase.index].join();
-        
+        testCaseThreads[currentTestCase.index]
+            .join();
     }
 
     clearCache();
 
-    //std::filesystem::remove("program");
-
-    // Delete the "Running..." line
-    
-    if(!tleFlag){
-        fmt::print("{}", deleteLine);
-    }else{
-        fmt::print("{}", deleteLine);
-        fmt::print("{}", deleteLine);
-    }
+    // Delete the "Running..." line    
+    fmt::print("{}", deleteLine);
 
     // Table creator
     std::vector<std::vector<std::string>> tableContent;
     tableContent.push_back({"Name", "Verdict", "Time"});
     for(auto currentTestCase: testCaseList){
-        //currentTestCase.name
-        //currentTestCase.verdict
-        //currentTestCase.runTime
         std::vector<std::string> currentRow;
         
+        //currentTestCase.name
         currentRow.push_back(currentTestCase.name);
 
+        //currentTestCase.verdict
         currentTestCase.verdict=makeVerdict(currentTestCase);
         currentRow.push_back(currentTestCase.verdict);
         
-
+        //currentTestCase.runTime
         std::string runTime_string=makeRunTime(currentTestCase.runTime, currentTestCase.isTle);
         currentRow.push_back(runTime_string);
         
@@ -162,5 +156,5 @@ int main(int argc, char* argv[]) {
     // );
     // Render(screen, document);
     // screen.Print();
-
+    return 0;
 }

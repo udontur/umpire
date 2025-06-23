@@ -19,11 +19,11 @@ bool compareOutput(int currentTestCaseIndex, std::string outPath){
     std::filesystem::path samplePath=currentTestCase.out;
     std::filesystem::path userPath=outPath;
 
-    std::ifstream inSample(samplePath); //currentTestCase.out
-    std::ifstream inUser(userPath); //outPath
+    std::ifstream inSample(samplePath); 
+    std::ifstream inUser(userPath); 
 
     //Empty
-    if(inSample.eof()){
+    if(inUser.eof()){
         currentTestCase.isRte=1;
         return 0;
     }
@@ -60,7 +60,7 @@ void runTest(int currentTestCaseIndex){
 
     auto runSystem=[&runStart, &runStop, &command](){
         runStart=std::chrono::high_resolution_clock::now();
-        // int errorCode=system(command.c_str());
+        system(command.c_str());
         runStop=std::chrono::high_resolution_clock::now();
     };
     
@@ -72,7 +72,7 @@ void runTest(int currentTestCaseIndex){
         if(!tleFlag){
             tleFlag=1;
             fmt::print("{}", deleteLine);
-            fmt::print(fmt::fg(fmt::color::yellow), "Please press Ctrl + C as your program has exceeded the time limit.\n");
+            fmt::print(fmt::fg(fmt::color::yellow), "Please press Control + C as your program has exceeded the time limit.\n");
             std::filesystem::remove(currentTestCase.outPath);
         }
     }

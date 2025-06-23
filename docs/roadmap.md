@@ -1,6 +1,5 @@
 ### Functionality
 - [x] Time parser (um -t)
-- [ ] argument parser [(a better one please)](https://github.com/p-ranav/argparse)
 - [x] compile program
 - [x] path list maker
 - [x] Multithread run case
@@ -17,6 +16,7 @@
 - [ ] FTXUI table color
 - [ ] Final verdict
 - [ ] Add argument: user can specify which folder they can use
+- [ ] argument parser [(a better one please)](https://github.com/p-ranav/argparse)
 ```
 competition
 - a-task
@@ -39,13 +39,11 @@ um --help
 - [x] C++ (Most common)
 - [x] Python (Common)
 - [x] Java (huge package size)
-- [ ] ~~Kotlin (might add or might not add since java is here)~~
 - [x] Rust
 - [x] Go
-- [x] ~~JavaScript (might delete)~~
 
 ### Build
-- [x] ~~Full CMake and Make build~~
+- [ ] CMake, fetch deps from system
 - [x] CMake + Nix
 - [ ] CMake + homebrew (MacOS Apple)
 - [ ] CMake + PKGBUILD (Arch Linux AUR)
@@ -56,14 +54,21 @@ um --help
 - [ ] Folder structures and formatting
 - [ ] Final Testing (please work after refactorring)
 
-### Documentation
-- [ ] README (with badges + demo + clearn usage and installtion guide)
-- [ ] help function (the --help or -h)
+### Documentation (README)
+- [ ] readme: Clean and nice readme
+- [ ] readme: Package badge, version badge, and build badge
+- [ ] readme: Concise installation guide
+- [ ] docs: Write a installation guide for all linux systems + detail ones for the ones we support
+- [ ] readme: Clean, easy to understand usage guide
+- [ ] docs: Write a detailed usage guide in the docs
+- [ ] readme: A demo of how it works
+- [ ] readme: What is it and why it helps you
+- [ ] docs: Good development docs
 
 ### CI
-- [ ] TestCase checker (development)
+- [x] TestCase checker (development)
 - [ ] Build checker: GitHub Actions
-  - [ ] ~CMake~
+  - [ ] CMake that fetch deps from system
   - [x] nix flakes
   - [ ] PKGBUILD (Arch)
   - [ ] homebrew (Apple)
