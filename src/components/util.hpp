@@ -4,6 +4,20 @@
 #include "../global/allheader.hpp"
 #include "../global/var.hpp"
 
+ftxui::Element toElement(std::string verdict){
+    if(verdict=="Time Limit Exceeded"){
+        return ftxui::color(ftxui::Color::Yellow, ftxui::text(verdict));
+    }else if(verdict=="Runtime Error"){
+        return ftxui::color(ftxui::Color::Yellow, ftxui::text(verdict));
+    }else if(verdict=="Wrong Answer"){
+        return ftxui::color(ftxui::Color::Red, ftxui::text(verdict));
+    }else if(verdict=="Accepted"){
+        return ftxui::color(ftxui::Color::Green, ftxui::text(verdict));
+    }else{
+        return ftxui::color(ftxui::Color::Yellow, ftxui::text(verdict));
+    }
+}
+
 bool runCompile(){
     std::string command;
     

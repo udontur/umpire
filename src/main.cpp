@@ -110,21 +110,31 @@ int main(int argc, char* argv[]) {
     fmt::print("{}", deleteLine);
 
     // Table creator
-    std::vector<std::vector<std::string>> tableContent;
-    tableContent.push_back({"Name", "Verdict", "Time"});
+    std::vector<std::vector<ftxui::Element>> tableContent;
+    tableContent.push_back({
+        ftxui::text("Name"),
+        ftxui::text("Verdict"),
+        ftxui::text("Time")
+    });
     for(auto currentTestCase: testCaseList){
-        std::vector<std::string> currentRow;
+        std::vector<ftxui::Element> currentRow;
         
         //currentTestCase.name
-        currentRow.push_back(currentTestCase.name);
+        currentRow.push_back(
+            ftxui::text(currentTestCase.name)
+        );
 
         //currentTestCase.verdict
         currentTestCase.verdict=makeVerdict(currentTestCase);
-        currentRow.push_back(currentTestCase.verdict);
+        currentRow.push_back(
+            toElement(currentTestCase.verdict)
+        );
         
         //currentTestCase.runTime
         std::string runTime_string=makeRunTime(currentTestCase.runTime, currentTestCase.isTle);
-        currentRow.push_back(runTime_string);
+        currentRow.push_back(
+            ftxui::text(runTime_string)
+        );
         
         tableContent.push_back(currentRow);
     }
@@ -135,7 +145,7 @@ int main(int argc, char* argv[]) {
 
     table.SelectRow(0).Border(ftxui::DOUBLE);
     table.SelectRow(0).Decorate(ftxui::bold);
-
+  
     auto screen=ftxui::Screen::Create(
         ftxui::Dimension::Full(),
         ftxui::Dimension::Fixed(testCaseList.size()+4)

@@ -58,25 +58,29 @@ void runTest(int currentTestCaseIndex){
 
     std::chrono::time_point<std::chrono::high_resolution_clock> runStart, runStop;    
 
-    auto runSystem=[&runStart, &runStop, &command](){
+    int systemReturn;
+    auto runSystem=[&runStart, &runStop, &command, &systemReturn](){
         runStart=std::chrono::high_resolution_clock::now();
-        system(command.c_str());
+        systemReturn=system(command.c_str());
         runStop=std::chrono::high_resolution_clock::now();
     };
     
     auto runSystemFuture=std::async(std::launch::async, runSystem);
 
     if(runSystemFuture.wait_for(std::chrono::milliseconds(runTimeLimit)) == std::future_status::timeout){
-        currentTestCase.isTle=1;
+        currentTestCase.isTle=true;
         //BROKEN TLE (TODO)
         if(!tleFlag){
-            tleFlag=1;
+            tleFlag=true;
             fmt::print("{}", deleteLine);
             fmt::print(fmt::fg(fmt::color::yellow), "Please press Control + C as your program has exceeded the time limit.\n");
             std::filesystem::remove(currentTestCase.outPath);
         }
     }
 
+    if(systemReturn!=0){
+        currentTestCase.isRte=true;
+    }
     currentTestCase.runTime=
         std::chrono::duration_cast
             <std::chrono::milliseconds>(runStop - runStart)
