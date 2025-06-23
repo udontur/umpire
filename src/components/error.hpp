@@ -3,6 +3,7 @@
 
 #include "../global/allheader.hpp"
 #include "cache.hpp"
+
 int throwError(std::string errorMessage){
     //helpPage();
     clearCache();
@@ -11,6 +12,28 @@ int throwError(std::string errorMessage){
     fmt::print(fmt::fg(fmt::color::red), "Error");
     fmt::print(": {}\n", errorMessage);
     return 1;
+}
+
+bool mainExists(){
+    if(std::filesystem::exists("main.cpp") == true){
+        user.isCpp=1;
+    }else if(std::filesystem::exists("main.py") == true){
+        user.isPy=1;
+    }else if(std::filesystem::exists("main.rs") == true){
+        user.isRs=1;
+    }else if(std::filesystem::exists("main.go") == true){
+        user.isGo=1;
+    }else if(std::filesystem::exists("main.java") == true){
+        user.isJava=1;
+    }
+    if(
+        std::filesystem::exists("main.cpp") == true ||
+        std::filesystem::exists("main.py") == true ||
+        std::filesystem::exists("main.rs") == true ||
+        std::filesystem::exists("main.go") == true ||
+        std::filesystem::exists("main.java") == true
+    ) return true;
+    else return false;
 }
 
 #endif

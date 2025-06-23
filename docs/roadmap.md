@@ -13,7 +13,7 @@
     - [x] Check if the folder is empty first 
     - [x] Clear cache function
 - [x] FTXUI output
-- [ ] FTXUI table color
+- [x] FTXUI table color
 - [ ] Final verdict
 - [ ] Add argument: user can specify which folder they can use
 - [ ] argument parser [(a better one please)](https://github.com/p-ranav/argparse)

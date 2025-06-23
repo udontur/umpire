@@ -1,51 +1,44 @@
-#ifndef runtest
-#define runtest
+#ifndef judge
+#define judge
 
 #include "../global/allheader.hpp"
 #include "../global/var.hpp"
 
-std::string rand64() {
-    const std::string characters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-    std::random_device random_device;
-    std::mt19937 generator(random_device());
-    std::string random_string(characters);
-    shuffle(random_string.begin(), random_string.end(), generator);
-    return random_string;
-}
-
-bool compareOutput(int currentTestCaseIndex, std::string outPath){
-    TestCase& currentTestCase=testCaseList[currentTestCaseIndex];
+bool compareOutput(int index){
     
-    std::filesystem::path samplePath=currentTestCase.out;
-    std::filesystem::path userPath=outPath;
+    TestCase& currentTestCase=testCaseList[index];
+
+    std::filesystem::path samplePath=currentTestCase.outPath;
+    std::filesystem::path programOutPath=currentTestCase.programOutPath;
 
     std::ifstream inSample(samplePath); 
-    std::ifstream inUser(userPath); 
+    std::ifstream inProgram(programOutPath); 
 
     //Empty
-    if(inUser.eof()){
-        currentTestCase.isRte=1;
+    if(inProgram.eof()){
+        currentTestCase.isRte=true;
         return 0;
     }
 
     std::string sampleString, userString;
     while(!inSample.eof()){
         inSample>>sampleString;
-        inUser>>userString;
+        inProgram>>userString;
         if(sampleString!=userString){
             return 0;
         }
     }
-
+    
     inSample.close();
-    inUser.close();
+    inProgram.close();
     return 1;
 }
 
-void runTest(int currentTestCaseIndex){
+void runTest(int index){
 
-    TestCase& currentTestCase=testCaseList[currentTestCaseIndex];
-    currentTestCase.outPath="./"+rand64()+".txt";
+    TestCase& currentTestCase=testCaseList[index];
+
+    currentTestCase.programOutPath="./"+rand64()+".txt";
 
     std::string prefix="./"+user.program;
     if(user.isPy){
@@ -54,7 +47,7 @@ void runTest(int currentTestCaseIndex){
         prefix="java "+user.program;
     }
 
-    std::string command=prefix+" < "+currentTestCase.in+" > "+currentTestCase.outPath+" && exit 0";
+    std::string command=prefix+" < "+currentTestCase.inPath+" > "+currentTestCase.programOutPath;
 
     std::chrono::time_point<std::chrono::high_resolution_clock> runStart, runStop;    
 
@@ -67,28 +60,29 @@ void runTest(int currentTestCaseIndex){
     
     auto runSystemFuture=std::async(std::launch::async, runSystem);
 
-    if(runSystemFuture.wait_for(std::chrono::milliseconds(runTimeLimit)) == std::future_status::timeout){
+    if(runSystemFuture.wait_for(std::chrono::milliseconds(user.runTimeLimit)) == std::future_status::timeout){
         currentTestCase.isTle=true;
         //BROKEN TLE (TODO)
         if(!tleFlag){
             tleFlag=true;
             fmt::print("{}", deleteLine);
             fmt::print(fmt::fg(fmt::color::yellow), "Please press Control + C as your program has exceeded the time limit.\n");
-            std::filesystem::remove(currentTestCase.outPath);
+            std::filesystem::remove(currentTestCase.programOutPath);
         }
     }
 
     if(systemReturn!=0){
         currentTestCase.isRte=true;
     }
+
     currentTestCase.runTime=
         std::chrono::duration_cast
             <std::chrono::milliseconds>(runStop - runStart)
                 .count();
     
-    currentTestCase.isAc=compareOutput(currentTestCaseIndex, currentTestCase.outPath);
+    currentTestCase.isAc=compareOutput(index);
 
-    std::filesystem::remove(currentTestCase.outPath);
+    std::filesystem::remove(currentTestCase.programOutPath);
 
     return;
 }
@@ -110,7 +104,7 @@ void runTest(int currentTestCaseIndex){
     //             fmt::print("DONE\n");
     //             break;
     //         }
-    //         if(elapsedTime>std::chrono::milliseconds(runTimeLimit)){
+    //         if(elapsedTime>std::chrono::milliseconds(user.runTimeLimit)){
     //             currentTestCase.isTle=1;
     //             try{
     //                 kill(pid, SIGKILL);
@@ -141,7 +135,7 @@ void runTest(int currentTestCaseIndex){
     //             fmt::print("DONE\n");
     //             break;
     //         }
-    //         if(elapsedTime>std::chrono::milliseconds(runTimeLimit)){
+    //         if(elapsedTime>std::chrono::milliseconds(user.runTimeLimit)){
     //             // Does not work
     //             kill(pid, SIGKILL);
                
@@ -167,7 +161,7 @@ void runTest(int currentTestCaseIndex){
     //             fmt::print("DONE\n");
     //             break;
     //         }
-    //         if(elapsedTime>std::chrono::milliseconds(runTimeLimit)){
+    //         if(elapsedTime>std::chrono::milliseconds(user.runTimeLimit)){
     //             currentTestCase.isTle=1;
     //             kill(pid, SIGKILL);
     //             fmt::print("KILLED\n");
@@ -189,7 +183,7 @@ void runTest(int currentTestCaseIndex){
         
     //     //FLAG
     //     fmt::print("{}\n", elapsedTime.count());
-    //     if(elapsedTime>std::chrono::milliseconds(runTimeLimit)){
+    //     if(elapsedTime>std::chrono::milliseconds(user.runTimeLimit)){
     //         currentTestCase.isTle=1;
     //         fmt::print("INTERUPTED: {}\n", elapsedTime.count());
     //         groupT.terminate();
@@ -208,7 +202,7 @@ void runTest(int currentTestCaseIndex){
     //     currentTestCase.isRte=1;
     // }
 
-     // if(!runTestCase.timed_join(boost::chrono::milliseconds(runTimeLimit))){
+     // if(!runTestCase.timed_join(boost::chrono::milliseconds(user.runTimeLimit))){
     //     // DO NOT RUN CODE, DOES NOT WORK
     //     // DOES NOT TERMINATE AND WILL BOMB YOUR DISK
     //     boost::this_thread::sleep_for(boost::chrono::milliseconds(200));

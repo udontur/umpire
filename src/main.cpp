@@ -5,18 +5,20 @@
 #include "components/help.hpp"
 #include "components/error.hpp"
 #include "components/cache.hpp"
-#include "components/runtest.hpp"
+#include "components/judge.hpp"
+#include "components/verdictTable.hpp"
+#include "components/compile.hpp"
 
 int main(int argc, char* argv[]) {
 
     // Argument parsing
     if (argc == 1) {
         // Default time limit
-        runTimeLimit = 1000;
+        user.runTimeLimit = 1000;
     } else if (argc == 2) {
         // Flags: --help, -h
         if (!strcmp(argv[1], "--help") == true ||
-            !strcmp(argv[1], "-h") == true) {
+            !strcmp(argv[1], "-h")     == true) {
             helpPage();
             return 0;
         } else {
@@ -26,7 +28,7 @@ int main(int argc, char* argv[]) {
         // Flags: -t
         if (!strcmp(argv[1], "-t") == true) {
             try {
-                runTimeLimit = std::stod(argv[2])*1000;
+                user.runTimeLimit = std::stod(argv[2])*1000;
             } catch (...) {
                 return throwError("Time limit must be an number.");
             }
@@ -61,7 +63,7 @@ int main(int argc, char* argv[]) {
         // Interpreter
         // Python: python3 main.py
         
-        auto compileThread = std::async(runCompile);
+        auto compileThread = std::async(compileFunction);
         fmt::print("Compiling program...\n");
         bool isCompiled = compileThread.get();
 
@@ -72,33 +74,19 @@ int main(int argc, char* argv[]) {
         }
     }
     
-    // Generate all the paths
-    std::vector<std::string> pathList=getPathList(user.testcaseFolder);
-    int testCaseIteratorIndex=0;
+    // Generate a list of test cases
+    std::vector<std::string> pathList =
+        getPathList(user.testCaseFolder);
+    testCaseList =
+        getTestCaseList(pathList);
 
-    for(auto currentTestCaseName: pathList){
-        TestCase currentTestCase;
-
-        currentTestCase.name=currentTestCaseName;
-        
-        currentTestCase.in=user.testcaseFolder+"/"+currentTestCase.name+".in";
-
-        currentTestCase.out=user.testcaseFolder+"/"+currentTestCase.name+".out";
-
-        currentTestCase.index=testCaseIteratorIndex;
-        
-        testCaseIteratorIndex++;
-        testCaseList.push_back(currentTestCase);
-    }
-    
-    // Multitrhead run each case
+    // Multithread run each case
     boost::thread testCaseThreads[testCaseList.size()];
     for(auto currentTestCase: testCaseList){
         testCaseThreads[currentTestCase.index]=
             boost::thread(
                 boost::bind(runTest, currentTestCase.index));  
     }
-
     for(auto currentTestCase: testCaseList){
         testCaseThreads[currentTestCase.index]
             .join();
@@ -109,62 +97,7 @@ int main(int argc, char* argv[]) {
     // Delete the "Running..." line    
     fmt::print("{}", deleteLine);
 
-    // Table creator
-    std::vector<std::vector<ftxui::Element>> tableContent;
-    tableContent.push_back({
-        ftxui::text("Name"),
-        ftxui::text("Verdict"),
-        ftxui::text("Time")
-    });
-    for(auto currentTestCase: testCaseList){
-        std::vector<ftxui::Element> currentRow;
-        
-        //currentTestCase.name
-        currentRow.push_back(
-            ftxui::text(currentTestCase.name)
-        );
-
-        //currentTestCase.verdict
-        currentTestCase.verdict=makeVerdict(currentTestCase);
-        currentRow.push_back(
-            toElement(currentTestCase.verdict)
-        );
-        
-        //currentTestCase.runTime
-        std::string runTime_string=makeRunTime(currentTestCase.runTime, currentTestCase.isTle);
-        currentRow.push_back(
-            ftxui::text(runTime_string)
-        );
-        
-        tableContent.push_back(currentRow);
-    }
-
-    auto table = ftxui::Table(tableContent);
-    table.SelectAll().Border(ftxui::LIGHT);
-    table.SelectAll().SeparatorVertical(ftxui::LIGHT);
-
-    table.SelectRow(0).Border(ftxui::DOUBLE);
-    table.SelectRow(0).Decorate(ftxui::bold);
-  
-    auto screen=ftxui::Screen::Create(
-        ftxui::Dimension::Full(),
-        ftxui::Dimension::Fixed(testCaseList.size()+4)
-    );
-
-    auto document=table.Render();
-    ftxui::Render(screen, document);
-    screen.Print();
-
-    // Element document=hbox({
-    //     text("left") | border,
-    //     text("center") | border | flex,
-    //     text("right") | border,
-    // });
-    // auto screen=Screen::Create(
-    //     Dimension::Full(),
-    //     Dimension::Fit(document)
-    // );
-    // Render(screen, document);
-    // screen.Print();
+    renderVerdictTable(testCaseList);
+    
     return 0;
 }
