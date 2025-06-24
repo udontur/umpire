@@ -20,6 +20,8 @@
 #include "ftxui/dom/node.hpp" 
 #include "ftxui/screen/color.hpp"
 
+#include <argparse/argparse.hpp>
+
 #include <filesystem>
 #include <fstream>
 

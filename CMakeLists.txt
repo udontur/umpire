@@ -10,6 +10,7 @@ project(
 find_package(fmt REQUIRED)
 find_package(Boost 1.86 REQUIRED COMPONENTS thread)
 find_package(ftxui REQUIRED)
+find_package(argparse REQUIRED)
 
 include_directories(src)
 
@@ -17,6 +18,7 @@ add_executable(umpire src/main.cpp)
 
 target_link_libraries(umpire PRIVATE 
     fmt::fmt 
+    argparse::argparse
     Boost::thread 
     ftxui::screen
     ftxui::dom

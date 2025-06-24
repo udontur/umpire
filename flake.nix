@@ -33,6 +33,7 @@
               ftxui
               fmt
               boost186
+              argparse
             ];
 
             cmakeFlags = [ "-DCMAKE_BUILD_TYPE=Release" ];
