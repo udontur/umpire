@@ -8,7 +8,7 @@ ftxui::Element verdictToElement(std::string verdict){
     if(verdict=="Time Limit Exceeded"){
         return ftxui::color(ftxui::Color::Yellow, ftxui::text(verdict));
     }else if(verdict=="Runtime Error"){
-        return ftxui::color(ftxui::Color::Yellow, ftxui::text(verdict));
+        return ftxui::color(ftxui::Color::Orange1, ftxui::text(verdict));
     }else if(verdict=="Wrong Answer"){
         return ftxui::color(ftxui::Color::Red, ftxui::text(verdict));
     }else if(verdict=="Accepted"){

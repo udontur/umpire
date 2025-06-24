@@ -24,11 +24,11 @@ void makeFinalVerdict(){
 void printFinalVerdict(){
     
     if(user.isTle){
-        fmt::print(fmt::bg(fmt::color::orange) | fmt::fg(fmt::color::black),
+        fmt::print(fmt::bg(fmt::color::yellow) | fmt::fg(fmt::color::black),
             "Time Limited Exceeded (Time: >{}s)\n",
             static_cast<double>(user.runTimeLimit));
     }else if(user.isRte){
-        fmt::print(fmt::bg(fmt::color::yellow) | fmt::fg(fmt::color::black),
+        fmt::print(fmt::bg(fmt::color::orange) | fmt::fg(fmt::color::black),
             "Runtime Error (Time: {}s)\n",
             user.maxRunTime);
     }else if(user.isWa){
