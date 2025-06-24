@@ -18,7 +18,7 @@
         default =
           pkgs.stdenv.mkDerivation rec {
             pname = "umpire";
-            version = "1.0";
+            version = "0.1";
             src = self;
 
             # Packages used by the builder
