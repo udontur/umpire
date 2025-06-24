@@ -44,7 +44,7 @@ void runTest(int index){
     if(user.isPy){
         prefix="python3 "+user.folder+user.program+".py";
     }else if(user.isJava){
-        prefix="java "+user.folder+user.program;
+        prefix="java -cp "+user.folder+" "+user.program;
     }
 
     std::string command=prefix+" < "+user.folder+currentTestCase.inPath+" > "+currentTestCase.programOutPath;

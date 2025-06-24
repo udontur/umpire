@@ -45,6 +45,7 @@ environment.systemPackages = with pkgs; [
 ### 🍺 homebrew (MacOS)
 ### 🔵 AUR (Arch Linux)
 <!-- ## Usage -->
-
+> [!NOTE]
+> For Java users, make sure your class name is `main`.
 ## ⚙️ Development
 [See development docs](docs/development.md)

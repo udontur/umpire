@@ -31,9 +31,8 @@ int main(int argc, char* argv[]) {
       program.parse_args(argc, argv);
     }
     catch (const std::exception& err) {
-      std::cerr << err.what() << std::endl;
-      std::cerr << program;
-      std::exit(1);
+        std::cout<<program;
+        return throwError(err.what());
     }
 
     // Make the help page print using fmt
@@ -44,7 +43,8 @@ int main(int argc, char* argv[]) {
     user.runTimeLimit=program.get<double>("-t");
     
     if(program["--help"]==true){
-      std::cout<<program<<"\n";
+        // Cannot use fmt::print
+        std::cout<<program;
     }
     
     // // Argument parsing
@@ -77,9 +77,11 @@ int main(int argc, char* argv[]) {
     
     // File system requirements
     if (std::filesystem::exists(user.folder+"testcase") == false) {
+        fmt::print("Current directory is \"{}\".\n", user.folder);
         return throwError("\"testcase\" folder not found.");
     }
     if(!mainExists()){
+        fmt::print("Current directory is \"{}\".\n", user.folder);
         return throwError("Code file not found. \nSupported Language: C++, Rust, Go, Java, Python.");
     }
 

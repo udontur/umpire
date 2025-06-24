@@ -19,9 +19,11 @@ bool compileFunction(){
         command+=user.folder+"main";
     }else if(user.isGo){
         command="go build ";
-        command+=user.folder+"main.go";
+        command+=user.folder+"main.go ";
+        command+="-o ";
+        command+=user.folder+"main";
     }else if(user.isJava){
-        command="javac ";
+        command="javac -d "+user.folder+" ";
         command+=user.folder+"main.java";
     }
 
