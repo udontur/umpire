@@ -14,7 +14,7 @@
     - [x] Clear cache function
 - [x] FTXUI output
 - [x] FTXUI table color
-- [ ] Final verdict
+- [x] Final verdict
 - [ ] Add argument: user can specify which folder they can use
 - [ ] argument parser [(a better one please)](https://github.com/p-ranav/argparse)
 ```
@@ -33,6 +33,8 @@ um --help
 - [x] Nix Flake: Add aarch64 and apple (make sure to edit github actions)
 - [x] Symlink um to umpire 
 - [ ] Help function
+
+A test case inputter?
 
 ### Multi-language support (but huge pkg size)
 - [x] C++ (Most common)
