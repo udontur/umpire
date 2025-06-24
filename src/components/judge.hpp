@@ -8,7 +8,7 @@ bool compareOutput(int index){
     
     TestCase& currentTestCase=testCaseList[index];
 
-    std::filesystem::path samplePath=currentTestCase.outPath;
+    std::filesystem::path samplePath=user.folder+currentTestCase.outPath;
     std::filesystem::path programOutPath=currentTestCase.programOutPath;
 
     std::ifstream inSample(samplePath); 
@@ -17,7 +17,7 @@ bool compareOutput(int index){
     //Empty
     if(inProgram.eof()){
         currentTestCase.isRte=true;
-        return 0;
+        return false;
     }
 
     std::string sampleString, userString;
@@ -25,29 +25,29 @@ bool compareOutput(int index){
         inSample>>sampleString;
         inProgram>>userString;
         if(sampleString!=userString){
-            return 0;
+            return false;
         }
     }
     
     inSample.close();
     inProgram.close();
-    return 1;
+    return true;
 }
 
 void runTest(int index){
 
     TestCase& currentTestCase=testCaseList[index];
 
-    currentTestCase.programOutPath="./"+rand64()+".txt";
+    currentTestCase.programOutPath=user.folder+rand64()+".txt";
 
-    std::string prefix="./"+user.program;
+    std::string prefix=user.folder+user.program;
     if(user.isPy){
-        prefix="python3 "+user.program+".py";
+        prefix="python3 "+user.folder+user.program+".py";
     }else if(user.isJava){
-        prefix="java "+user.program;
+        prefix="java "+user.folder+user.program;
     }
 
-    std::string command=prefix+" < "+currentTestCase.inPath+" > "+currentTestCase.programOutPath;
+    std::string command=prefix+" < "+user.folder+currentTestCase.inPath+" > "+currentTestCase.programOutPath;
 
     std::chrono::time_point<std::chrono::high_resolution_clock> runStart, runStop;    
 

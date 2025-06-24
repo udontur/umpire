@@ -13,7 +13,7 @@ class File{
 
 class User {
     public:
-        std::string homeFolder = getenv("HOME");
+        std::string folder;
         std::string program = "main";
         std::string testCaseFolder="testcase";
 

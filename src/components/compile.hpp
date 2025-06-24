@@ -8,13 +8,21 @@ bool compileFunction(){
     std::string command;
     
     if(user.isCpp){
-        command="g++ main.cpp -o main";
+        command="g++ ";
+        command+=user.folder+"main.cpp ";
+        command+="-o ";
+        command+=user.folder+"main";
     }else if(user.isRs){
-        command="rustc main.rs -o main";
+        command="rustc ";
+        command+=user.folder+"main.rs ";
+        command+="-o ";
+        command+=user.folder+"main";
     }else if(user.isGo){
-        command="go build main.go";
+        command="go build ";
+        command+=user.folder+"main.go";
     }else if(user.isJava){
-        command="javac main.java";
+        command="javac ";
+        command+=user.folder+"main.java";
     }
 
     int isCompiled=!system(command.c_str());

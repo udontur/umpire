@@ -2,7 +2,6 @@
 #include "global/var.hpp"
 
 #include "components/util.hpp"
-#include "components/help.hpp"
 #include "components/error.hpp"
 #include "components/cache.hpp"
 #include "components/judge.hpp"
@@ -37,12 +36,12 @@ int main(int argc, char* argv[]) {
       std::exit(1);
     }
 
-    // Make the folder universal
-    // Make the runTime adapt to it
     // Make the help page print using fmt
     // Make the parse error looks nicer
-    auto folder=program.get<std::string>("folderPath");
-    auto runTime=program.get<double>("-t");
+    user.folder=program.get<std::string>("folderPath");
+    user.folder+="/";
+    
+    user.runTimeLimit=program.get<double>("-t");
     
     if(program["--help"]==true){
       std::cout<<program<<"\n";
@@ -77,7 +76,7 @@ int main(int argc, char* argv[]) {
     // }
     
     // File system requirements
-    if (std::filesystem::exists("testcase") == false) {
+    if (std::filesystem::exists(user.folder+"testcase") == false) {
         return throwError("\"testcase\" folder not found.");
     }
     if(!mainExists()){
@@ -113,7 +112,7 @@ int main(int argc, char* argv[]) {
     
     // Generate a list of test cases
     std::vector<std::string> pathList =
-        getPathList(user.testCaseFolder);
+        getPathList(user.folder+user.testCaseFolder);
     testCaseList =
         getTestCaseList(pathList);
 
