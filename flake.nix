@@ -1,6 +1,6 @@
 {
   description = "github:udontur/umpire Nix flake";
-  inputs.nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-24.11";
+  inputs.nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05";
   outputs = { self, nixpkgs }:
     let
       supportedSystems = [
@@ -17,10 +17,8 @@
       in{
         default =
           pkgs.stdenv.mkDerivation rec {
-            # Meta Data
             pname = "umpire";
             version = "1.0";
-            
             src = self;
 
             # Packages used by the builder
@@ -30,6 +28,7 @@
               gcc
             ];
 
+            # Packages used by the program
             buildInputs = with pkgs;[
               ftxui
               fmt
@@ -38,7 +37,6 @@
 
             cmakeFlags = [ "-DCMAKE_BUILD_TYPE=Release" ];
             
-            # Install
             installPhase = ''
               runHook preInstall
               
@@ -48,6 +46,15 @@
 
               runHook postInstall
             '';
+
+            
+            meta = {
+              homepage = "https://github.com/udontur/umpire";
+              description = "A blazingly fast competitive programming helper";
+              mainProgram = "umpire";
+              license = pkgs.lib.licenses.mit;
+              platforms = pkgs.lib.platforms.all;
+            };
           };
         }
       );
