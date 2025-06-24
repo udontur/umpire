@@ -16,16 +16,25 @@ class User {
         std::string homeFolder = getenv("HOME");
         std::string program = "main";
         std::string testCaseFolder="testcase";
-        int runTimeLimit=1000;
-        bool isCpp=0;
-        bool isPy=0;
-        bool isRs=0;
-        bool isGo=0;
-        bool isJava=0;
+
+        double runTimeLimit=0.0;
+        double maxRunTime=0.0;
+        
+        bool isCpp=false;
+        bool isPy=false;
+        bool isRs=false;
+        bool isGo=false;
+        bool isJava=false;
+
+        bool isTle=false;
+        bool isRte=false;
+        bool isWa=false;
+        bool isAc=false;
+
+        
 };
  
 User user;
-
 
 struct TestCase{
     std::string name;
@@ -33,11 +42,11 @@ struct TestCase{
     std::string outPath;
     std::string programOutPath;
     std::string verdict;
-    double runTime=-1;
+    double runTime=-1.0;
     int index;
-    bool isTle=0;
-    bool isAc=0;
-    bool isRte=0;
+    bool isTle=false;
+    bool isAc=false;
+    bool isRte=false;
 };
 
 std::vector<TestCase> testCaseList;

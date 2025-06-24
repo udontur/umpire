@@ -60,7 +60,10 @@ void runTest(int index){
     
     auto runSystemFuture=std::async(std::launch::async, runSystem);
 
-    if(runSystemFuture.wait_for(std::chrono::milliseconds(user.runTimeLimit)) == std::future_status::timeout){
+    if(runSystemFuture.wait_for(
+            std::chrono::milliseconds(
+                static_cast<int>(user.runTimeLimit*1000))) ==
+            std::future_status::timeout){
         currentTestCase.isTle=true;
         //BROKEN TLE (TODO)
         if(!tleFlag){
@@ -78,8 +81,7 @@ void runTest(int index){
     currentTestCase.runTime=
         std::chrono::duration_cast
             <std::chrono::milliseconds>(runStop - runStart)
-                .count();
-    
+                .count()/1000.0;
     currentTestCase.isAc=compareOutput(index);
 
     std::filesystem::remove(currentTestCase.programOutPath);

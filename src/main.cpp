@@ -1,6 +1,6 @@
 #include "global/allheader.hpp"
 #include "global/var.hpp"
-
+#include <iostream>
 #include "components/util.hpp"
 #include "components/help.hpp"
 #include "components/error.hpp"
@@ -14,7 +14,7 @@ int main(int argc, char* argv[]) {
     // Argument parsing
     if (argc == 1) {
         // Default time limit
-        user.runTimeLimit = 1000;
+        user.runTimeLimit = 1.0;
     } else if (argc == 2) {
         // Flags: --help, -h
         if (!strcmp(argv[1], "--help") == true ||
@@ -28,7 +28,7 @@ int main(int argc, char* argv[]) {
         // Flags: -t
         if (!strcmp(argv[1], "-t") == true) {
             try {
-                user.runTimeLimit = std::stod(argv[2])*1000;
+                user.runTimeLimit = std::stod(argv[2]);
             } catch (...) {
                 return throwError("Time limit must be an number.");
             }
@@ -38,7 +38,7 @@ int main(int argc, char* argv[]) {
     } else {
         return throwError("Invalid arguments.");
     }
-
+    
     // File system requirements
     if (std::filesystem::exists("testcase") == false) {
         return throwError("\"testcase\" folder not found.");
@@ -98,6 +98,10 @@ int main(int argc, char* argv[]) {
     fmt::print("{}", deleteLine);
 
     renderVerdictTable(testCaseList);
-    
+
+    makeFinalVerdict();
+
+    printFinalVerdict();
+            
     return 0;
 }

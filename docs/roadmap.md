@@ -33,7 +33,6 @@ um --help
 - [x] Nix Flake: Add aarch64 and apple (make sure to edit github actions)
 - [x] Symlink um to umpire 
 - [ ] Help function
-- [ ] All output clean up
 
 ### Multi-language support (but huge pkg size)
 - [x] C++ (Most common)
@@ -43,7 +42,6 @@ um --help
 - [x] Go
 
 ### Build
-- [ ] CMake, fetch deps from system
 - [x] CMake + Nix
 - [ ] CMake + homebrew (MacOS Apple)
 - [ ] CMake + PKGBUILD (Arch Linux AUR)
@@ -68,7 +66,6 @@ um --help
 ### CI
 - [x] TestCase checker (development)
 - [ ] Build checker: GitHub Actions
-  - [ ] CMake that fetch deps from system
   - [x] nix flakes
   - [ ] PKGBUILD (Arch)
   - [ ] homebrew (Apple)

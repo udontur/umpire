@@ -33,18 +33,14 @@ std::string makeVerdict(TestCase &currentTestCase){
     return resultVerdict;
 }
 
-std::string makeVerdictRunTime(int runTime, bool isTle){
+std::string makeVerdictRunTime(double runTime, bool isTle){
     std::string resultRunTime;
     if(isTle){
-        std::string userRunTimeLimit_string=std::to_string(
-            static_cast<double>(user.runTimeLimit)
-                /1000.0);
+        std::string userRunTimeLimit_string=std::to_string(user.runTimeLimit);
         userRunTimeLimit_string=userRunTimeLimit_string.substr(0, 5);
         resultRunTime=">"+userRunTimeLimit_string+"s";
     }else{
-        resultRunTime=std::to_string(
-            static_cast<double>(runTime)
-                /1000.0);
+        resultRunTime=std::to_string(runTime);
         resultRunTime=resultRunTime.substr(0, 5);
         resultRunTime=resultRunTime+"s";
     }
