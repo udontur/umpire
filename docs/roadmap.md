@@ -15,26 +15,12 @@
 - [x] FTXUI output
 - [x] FTXUI table color
 - [x] Final verdict
-- [ ] Add argument: user can specify which folder they can use
-- [ ] argument parser [(a better one please)](https://github.com/p-ranav/argparse)
-```
-competition
-- a-task
--- test case
--- main.cpp
-- b-task
--- test case
---main.cpp
-
-um b-task -t 3.5
-um -t 3.5 b-task
-um --help
-```
+- [x] Add argument: user can specify which folder they can use
+- [x] argument parser [(a better one please)](https://github.com/p-ranav/argparse)
 - [x] Nix Flake: Add aarch64 and apple (make sure to edit github actions)
 - [x] Symlink um to umpire 
-- [ ] Help function
+- [x] Help function
 
-A test case inputter?
 
 ### Multi-language support (but huge pkg size)
 - [x] C++ (Most common)
@@ -84,3 +70,4 @@ A test case inputter?
 - [ ] MLE and Memory limit
 - [ ] nixpkgs (upload)
 - [ ] Better TLE mechanism
+- [ ] A test case inputter?

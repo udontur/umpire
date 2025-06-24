@@ -1,13 +1,13 @@
 <br />
 <div align="center">
-  <h1 align="center">WORK IN PROGRESS Umpire</h3>
+  <h1 align="center">Umpire</h1>
   <p align="center">
     ⚖️ A blazingly fast competitive programming helper 
     <br />
     <br />
-    <a href="https://github.com/udontur/judgel/issues/new">Report Bug</a>
-    ·
-    <a href="https://hadrianlau.com">Made with passion by Hadrian</a>
+    <img alt="Version Number" src="https://img.shields.io/badge/v0.1--alpha-Package?label=Version&color=blue">
+    <img alt="GitHub Actions Status" src="https://img.shields.io/github/actions/workflow/status/udontur/umpire/build-nix.yml?logo=GitHub">
+    <img alt="Static Badge" src="https://img.shields.io/badge/Passion-Made%20with?label=Made%20with&color=red">
   </p>
 </div>
 
@@ -16,11 +16,11 @@ Writing...
 DEMO VIDEO
 
 ## 📥 Installation (Linux and MacOS)
-Umpire is available for both Linux (Nix and AUR) and MacOS (homebrew and Nix). 
+Umpire is available for both Linux and MacOS. 
 > [!NOTE]
 > To avoid large package size, please install the compilers that you use:
-> ```nix
-> gcc # C++, Installed by default
+> ```sh
+> gcc # C++, installed by default
 > python3 # Python
 > go # Golang
 > zulu # Java
@@ -34,7 +34,7 @@ inputs = {
   # ...
 };
 ```
-2. Add the pacakge in ```environment.systemPackages```:
+2. Add the package in ```environment.systemPackages```:
 ```nix
 environment.systemPackages = with pkgs; [
   inputs.umpire.packages."${system}".default
@@ -42,10 +42,64 @@ environment.systemPackages = with pkgs; [
 ];
 ```
 3. Rebuild your configuration with Nix flakes enabled.
-### 🍺 homebrew (MacOS)
-### 🔵 AUR (Arch Linux)
-<!-- ## Usage -->
+<!-- ### 🍺 Homebrew (MacOS) -->
+<!-- ### 🔵 AUR (Arch Linux) -->
+## 🖥️ Usage
+The usage guide is also available via the following command: `um --help`
+
+### 📁 Folder Structure
+Organize your code directory as follows:
+```sh
+task-a # The folder that stores everything
+└─ main.cpp # File name must be "main"
+   └─ testcase # Exact name
+      ├─ ABC.in # Same input / output name: ABC
+      ├─ ABC.out # Same input / output name: ABC
+
+```
+
+<details>
+  <summary>Click here for more details</summary><br />
+<code>task-a</code> is the directory that contains the code file and test case folder.
+
+The code file should be named as <code>main.XXX</code> where <code>XXX</code> is the file extension (<code>.cpp</code> for C++).
+
+The test cases should be located in the <code>testcase</code> folder (must be the **exact name**).
+
+Each test case in the folder must be in the format of <code>ABC.in</code> and <code>ABC.out</code> where <code>ABC</code> is the input / output file name.
+</details>
+
+
 > [!NOTE]
-> For Java users, make sure your class name is `main`.
+> For Java programmers, make sure the class name is `main`.
+
+### 🧠 Running Umpire
+Run `umpire` in the **current** directory:
+```sh
+um
+```
+Or specify a directory:
+```
+um task-a
+```
+
+### ⚙️ Options for Umpire
+#### 1. Execution time limit
+Set the execution time limit in seconds (accepts integers and decimal numbers):
+```sh
+um -t 3.5 # 3.5 seconds time limit
+```
+> [!TIP]
+> Omit for a 1 second time limit
+> ```
+> um
+> ```
+
+### 💡 Example
+Run the code located in the `task-a` folder with a 2 second time limit:
+```sh
+um task-a -t 2
+```  
+
 ## ⚙️ Development
 [See development docs](docs/development.md)
