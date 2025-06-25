@@ -1,19 +1,18 @@
 ## 🛠️ Build the package
-Umpire is built using Nix, CMake, and Make.
-1. Enter the Nix development shell
+Umpire is built using CMake and Make.
+1. Make the `build/` directory
 ```sh
-nix develop
+mkdir -p build && cd build
 ```
-2. Build the program from the source
+2. Generate the CMake files
 ```sh
-nix build
+cmake ..
 ```
-3. Run the program with arguments
+3. Build the program
 ```sh
-nix run . -- <PUT YOUR ARGS HERE>
+cmake --build .
 ```
-> [!NOTE]
-> The resulting binary is located at `./result/bin/um`, relative to the root directory.
+4. The resulting binary is located at `./um`, relative to the `build/` directory.
 
 ## 📝 Test Script
 Test cases are located at `/test`.

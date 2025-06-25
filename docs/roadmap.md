@@ -30,10 +30,10 @@
 
 ### Build
 - [x] CMake
-- [ ] CMake + Nix
+- [x] CMake + Nix
 - [ ] CMake + homebrew (MacOS Apple)
 - [ ] CMake + PKGBUILD (Arch Linux AUR)
-- [ ] Make a static binary
+- [ ] Make a static binary (cmake and stuff)
 
 ### Final Testing
 - [x] Code refactoring (cleaner implementation)
@@ -49,6 +49,7 @@
 - [x] readme: What is it and why it helps you
 - [x] docs: Good development docs
 - [x] readme: a very eye catching demo
+- [x] change dev guide
 
 ### CI
 - [x] TestCase checker (development)
@@ -57,7 +58,6 @@
   - [x] nix flakes
   - [ ] PKGBUILD (Arch)
   - [ ] homebrew (Apple)
-- [ ] Automatically generates static binary 
 
 ### Package Managment
 #### Unstable Release
