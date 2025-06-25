@@ -1,5 +1,5 @@
 ## 🛠️ Build the package
-`umpire` is built using Nix, CMake, and Make.
+Umpire is built using Nix, CMake, and Make.
 1. Enter the Nix development shell
 ```sh
 nix develop
@@ -29,5 +29,5 @@ Run the Test Script to check the application against common test cases
 
 The other test script `test-all.sh` checks the application against all test cases (hopefully):
 ```
-./installation.md.sh
+./test-all.sh
 ```
