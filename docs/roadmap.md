@@ -36,10 +36,10 @@
 - [ ] Make a static binary
 
 ### Final Testing
-- [ ] Code refactoring (cleaner implementation)
-- [ ] Functionality clean up
-- [ ] Folder structures and formatting
-- [ ] Final Testing (please work after refactorring)
+- [x] Code refactoring (cleaner implementation)
+- [x] Functionality clean up
+- [x] Folder structures and formatting
+- [x] Final Testing (please work after refactorring)
 
 ### Documentation (README)
 - [ ] readme: Clean and nice readme

@@ -29,12 +29,10 @@ class User {
         bool isTle=false;
         bool isRte=false;
         bool isWa=false;
-        bool isAc=false;
-
-        
+        bool isAc=false;   
 };
  
-User user;
+
 
 struct TestCase{
     std::string name;
@@ -50,9 +48,8 @@ struct TestCase{
 };
 
 std::vector<TestCase> testCaseList;
-
 bool tleFlag=0;
-
+User user;
 #define deleteLine "\033[1A\r\033[K"
 
 #endif
