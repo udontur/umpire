@@ -11,21 +11,21 @@ include(FetchContent)
 
 FetchContent_Declare(
     fmt
-    GIT_REPOSITORY https://github.com/fmtlib/fmt.git
+    GIT_REPOSITORY https://github.com/fmtlib/fmt
     GIT_TAG 11.2.0
 )
 FetchContent_MakeAvailable(fmt)
 
 FetchContent_Declare(
     ftxui
-    GIT_REPOSITORY https://github.com/ArthurSonzogni/ftxui.git
+    GIT_REPOSITORY https://github.com/ArthurSonzogni/ftxui
     GIT_TAG v6.1.9
 )
 FetchContent_MakeAvailable(ftxui)
 
 FetchContent_Declare(
     argparse
-    GIT_REPOSITORY https://github.com/p-ranav/argparse.git
+    GIT_REPOSITORY https://github.com/p-ranav/argparse
     GIT_TAG v3.2
 )
 FetchContent_MakeAvailable(argparse)

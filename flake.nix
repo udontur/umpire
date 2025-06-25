@@ -1,7 +1,9 @@
 {
   description = "github:udontur/umpire Nix flake";
-  inputs.nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05";
-  outputs = { self, nixpkgs }:
+  inputs.nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+  inputs.nix-buildproxy.url = "github:polygon/nix-buildproxy";
+  
+  outputs = { self, nixpkgs, nix-buildproxy, ... }:
     let
       supportedSystems = [
         "x86_64-linux"
@@ -13,7 +15,11 @@
     in{
       packages = forAllSystems(system:
       let
-        pkgs = import nixpkgs {inherit system; };
+        pkgs = import nixpkgs {
+          inherit system;
+          overlays = [ nix-buildproxy.overlays.default ];
+        };
+        buildproxy = pkgs.lib.mkBuildproxy ./proxy_content.nix;
       in{
         default =
           pkgs.stdenv.mkDerivation rec {
@@ -26,16 +32,14 @@
               cmake
               gnumake
               gcc
+              buildproxy
+              curl
             ];
 
-            # Packages used by the program
-            buildInputs = with pkgs;[
-              ftxui
-              fmt
-              boost186
-              argparse
-            ];
-
+            prePatch = ''
+              source ${buildproxy}
+            '';
+            
             cmakeFlags = [ "-DCMAKE_BUILD_TYPE=Release" ];
             
             installPhase = ''
