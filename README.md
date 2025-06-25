@@ -106,6 +106,3 @@ Run the code located in the `task-a` folder with a 2 second time limit:
 ```sh
 um task-a -t 2
 ```  
-
-## ⚙️ Development
-[See development docs](docs/development.md)
