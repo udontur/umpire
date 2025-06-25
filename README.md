@@ -20,7 +20,7 @@ With just one short command, you can get quick, clear, and easy-to-read results 
 
 **Umpire turns testing into your winning edge!**
 
-[ADD DEMO VIDEO]
+![Demo Video](asset/demo.gif)
 
 ## 📥 Installation (Linux and MacOS)
 Umpire is available for both Linux and MacOS. 
