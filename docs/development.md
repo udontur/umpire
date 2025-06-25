@@ -1,30 +1,33 @@
 ## 🛠️ Build the package
-`umpire` is built using Cmake and Make.
-
-1. Make the `build` directory
+`umpire` is built using Nix, CMake, and Make.
+1. Enter the Nix development shell
 ```sh
-mkdir -p build
-cd build
+nix develop
 ```
-2. Make the CMake files
+2. Build the program from the source
 ```sh
-cmake ..
+nix build
 ```
-3. Build using CMake and Make
+3. Run the program with arguments
 ```sh
-cmake --build .
+nix run . -- <PUT YOUR ARGS HERE>
 ```
-The resulting binary is located at `./um`.
+> [!NOTE]
+> The resulting binary is located at `./result/bin/um`, relative to the root directory.
 
 ## 📝 Test Script
 Test cases are located at `/test`.
 ```sh
 cd test
 ```
-Run the Test Script to check the application against the test cases
+Run the Test Script to check the application against common test cases
 ```sh
 ./test.sh
 ```
-> [!NOTE]
+> [!IMPORTANT]
 > Pay attention to the TLE test case, you will need to manually cancel it using `Ctrl + C`. 
 
+The other test script `test-all.sh` checks the application against all test cases (hopefully):
+```
+./installation.md.sh
+```

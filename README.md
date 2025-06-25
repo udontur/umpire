@@ -2,7 +2,7 @@
 <div align="center">
   <h1 align="center">Umpire</h1>
   <p align="center">
-    ⚖️ A blazingly fast competitive programming helper 
+    ⚖️ Turn testing into your winning edge!
     <br />
     <br />
     <img alt="Version Number" src="https://img.shields.io/badge/v0.1--alpha-Package?label=Version&color=blue">
@@ -12,8 +12,15 @@
 </div>
 
 ## ⭐️ About
-Writing...
-DEMO VIDEO
+> Say goodbye to annoying manual test runs during an intense programming contest!
+
+Umpire is a blazingly fast command-line helper that compiles your code, executes it, and automatically validates against all test cases.
+
+With just one short command, you can get quick, clear, and easy-to-read results at a glance. It lets you focus on solving problems rather than wasting time juggling with annoying copy-pastes and loads of commands. 
+
+**Umpire turns testing into your winning edge!**
+
+[ADD DEMO VIDEO]
 
 ## 📥 Installation (Linux and MacOS)
 Umpire is available for both Linux and MacOS. 
@@ -44,6 +51,8 @@ environment.systemPackages = with pkgs; [
 3. Rebuild your configuration with Nix flakes enabled.
 <!-- ### 🍺 Homebrew (MacOS) -->
 <!-- ### 🔵 AUR (Arch Linux) -->
+<!-- ### Other Linux -->
+
 ## 🖥️ Usage
 The usage guide is also available via the following command: `um --help`
 
@@ -55,7 +64,6 @@ task-a # The folder that stores everything
    └─ testcase # Exact name
       ├─ ABC.in # Same input / output name: ABC
       ├─ ABC.out # Same input / output name: ABC
-
 ```
 
 <details>
@@ -69,10 +77,6 @@ The test cases should be located in the <code>testcase</code> folder (must be th
 Each test case in the folder must be in the format of <code>ABC.in</code> and <code>ABC.out</code> where <code>ABC</code> is the input / output file name.
 </details>
 
-
-> [!NOTE]
-> For Java programmers, make sure the class name is `main`.
-
 ### 🧠 Running Umpire
 Run `umpire` in the **current** directory:
 ```sh
@@ -82,7 +86,9 @@ Or specify a directory:
 ```
 um task-a
 ```
-
+> [!NOTE]
+> For Java programmers, make sure the class name is `main`.
+> 
 ### ⚙️ Options for Umpire
 #### 1. Execution time limit
 Set the execution time limit in seconds (accepts integers and decimal numbers):

@@ -33,6 +33,7 @@
 - [x] CMake + Nix
 - [ ] CMake + homebrew (MacOS Apple)
 - [ ] CMake + PKGBUILD (Arch Linux AUR)
+- [ ] Make a static binary
 
 ### Final Testing
 - [ ] Code refactoring (cleaner implementation)
@@ -42,14 +43,12 @@
 
 ### Documentation (README)
 - [ ] readme: Clean and nice readme
-- [ ] readme: Package badge, version badge, and build badge
-- [ ] readme: Concise installation guide
-- [ ] docs: Write a installation guide for all linux systems + detail ones for the ones we support
-- [ ] readme: Clean, easy to understand usage guide
-- [ ] docs: Write a detailed usage guide in the docs
-- [ ] readme: A demo of how it works
+- [x] readme: Package badge, version badge, and build badge
+- [ ] readme: Concise installation guide (and one for the other linux distro)
+- [x] readme: Clean, easy to understand usage guide
 - [ ] readme: What is it and why it helps you
 - [ ] docs: Good development docs
+- [ ] readme: a very eye catching demo
 
 ### CI
 - [x] TestCase checker (development)
@@ -57,6 +56,7 @@
   - [x] nix flakes
   - [ ] PKGBUILD (Arch)
   - [ ] homebrew (Apple)
+- [ ] Automatically generates static binary 
 
 ### Package Managment
 #### Unstable Release
@@ -65,9 +65,10 @@
 #### Stable Release
 - [ ] AUR (PKGBUILD Arch Linux) 
 - [ ] homebrew (MacOS)
+- [ ] Static binary (auto generated)
 
 ### Future Roadmaps
 - [ ] MLE and Memory limit
 - [ ] nixpkgs (upload)
 - [ ] Better TLE mechanism
-- [ ] A test case inputter?
+- [ ] A test case inputter
