@@ -50,7 +50,9 @@ environment.systemPackages = with pkgs; [
 ```
 3. Rebuild your configuration with Nix flakes enabled.
 <!-- ### 🍺 Homebrew (MacOS) -->
-<!-- ### 🔵 AUR (Arch Linux) -->
+### 🔵 AUR (Arch Linux)
+`yay -S ftxui`
+`makepkg -si`
 <!-- ### Other Linux -->
 
 ## 🖥️ Usage
