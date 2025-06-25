@@ -7,19 +7,45 @@ project(
     LANGUAGES CXX
 )
 
-find_package(fmt REQUIRED)
-find_package(Boost 1.86 REQUIRED COMPONENTS thread)
-find_package(ftxui REQUIRED)
-find_package(argparse REQUIRED)
+include(FetchContent)
 
+FetchContent_Declare(
+    fmt
+    GIT_REPOSITORY https://github.com/fmtlib/fmt.git
+    GIT_TAG 11.2.0
+)
+FetchContent_MakeAvailable(fmt)
+
+
+FetchContent_Declare(
+    ftxui
+    GIT_REPOSITORY https://github.com/ArthurSonzogni/ftxui.git
+    GIT_TAG v6.1.9
+)
+FetchContent_MakeAvailable(ftxui)
+
+FetchContent_Declare(
+    argparse
+    GIT_REPOSITORY https://github.com/p-ranav/argparse.git
+    GIT_TAG v3.2
+)
+FetchContent_MakeAvailable(fmt)
+
+FetchContent_Declare(
+  Boost
+  GIT_REPOSITORY https://github.com/boostorg/thread.git
+  GIT_TAG boost-1.86.0
+)
+FetchContent_MakeAvailable(Boost)
 include_directories(src)
 
 add_executable(umpire src/main.cpp)
 
 target_link_libraries(umpire PRIVATE 
     fmt::fmt 
-    argparse::argparse
+    argparse
     Boost::thread 
+    Boost::assert
     ftxui::screen
     ftxui::dom
     ftxui::component
