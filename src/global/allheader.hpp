@@ -12,8 +12,6 @@
 #include <future>
 #include <chrono>
 
-#include <boost/thread.hpp>
-
 #include <ftxui/dom/elements.hpp>
 #include <ftxui/screen/screen.hpp>
 #include <ftxui/dom/table.hpp>

@@ -86,12 +86,10 @@ int main(int argc, char* argv[]) {
         getPathList(user.folder + user.testCaseFolder);
     testCaseList = getTestCaseList(pathList);
 
-    // Multithread run each case
-    boost::thread testCaseThreads[testCaseList.size()];
+    std::vector<std::thread> testCaseThreads(testCaseList.size());
     for (auto currentTestCase : testCaseList) {
         testCaseThreads[currentTestCase.index] =
-            boost::thread(boost::bind(
-                runTest, currentTestCase.index));
+            std::thread(runTest, currentTestCase.index);
     }
     for (auto currentTestCase : testCaseList) {
         testCaseThreads[currentTestCase.index].join();

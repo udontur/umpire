@@ -1,5 +1,9 @@
 git add .
-nix build
+cd ..
+cd build
+cmake --build .
+cd ..
+cd test
 
 array=("ac" "ca" "case" "nom" "rte" "tle" "wa" "go" "java" "python" "rust")
 for name in "${array[@]}"

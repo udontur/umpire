@@ -1,5 +1,10 @@
 git add .
-nix build
+cd ..
+cd build
+cmake --build .
+cd ..
+cd test
+
 
 # "go" "java" "javascript" "python" "rust"
 

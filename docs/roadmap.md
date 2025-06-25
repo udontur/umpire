@@ -21,7 +21,6 @@
 - [x] Symlink um to umpire 
 - [x] Help function
 
-
 ### Multi-language support (but huge pkg size)
 - [x] C++ (Most common)
 - [x] Python (Common)
@@ -30,7 +29,8 @@
 - [x] Go
 
 ### Build
-- [x] CMake + Nix
+- [x] CMake
+- [ ] CMake + Nix
 - [ ] CMake + homebrew (MacOS Apple)
 - [ ] CMake + PKGBUILD (Arch Linux AUR)
 - [ ] Make a static binary
@@ -53,6 +53,7 @@
 ### CI
 - [x] TestCase checker (development)
 - [ ] Build checker: GitHub Actions
+  - [ ] CMake
   - [x] nix flakes
   - [ ] PKGBUILD (Arch)
   - [ ] homebrew (Apple)

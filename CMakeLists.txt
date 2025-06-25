@@ -16,7 +16,6 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(fmt)
 
-
 FetchContent_Declare(
     ftxui
     GIT_REPOSITORY https://github.com/ArthurSonzogni/ftxui.git
@@ -29,26 +28,17 @@ FetchContent_Declare(
     GIT_REPOSITORY https://github.com/p-ranav/argparse.git
     GIT_TAG v3.2
 )
-FetchContent_MakeAvailable(fmt)
+FetchContent_MakeAvailable(argparse)
 
-FetchContent_Declare(
-  Boost
-  GIT_REPOSITORY https://github.com/boostorg/thread.git
-  GIT_TAG boost-1.86.0
-)
-FetchContent_MakeAvailable(Boost)
 include_directories(src)
+add_executable(um src/main.cpp)
 
-add_executable(umpire src/main.cpp)
-
-target_link_libraries(umpire PRIVATE 
+target_link_libraries(um PRIVATE 
     fmt::fmt 
     argparse
-    Boost::thread 
-    Boost::assert
     ftxui::screen
     ftxui::dom
     ftxui::component
 )
 
-target_include_directories(umpire PRIVATE src)
+target_include_directories(um PRIVATE src)
