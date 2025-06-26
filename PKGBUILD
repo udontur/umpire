@@ -1,5 +1,5 @@
 pkgname="umpire"
-pkgver="v1.0"
+pkgver=0.1
 pkgrel=1
 pkgdesc="A blazingly fast competitive programming helper"
 arch=("x86_64" "aarch64")
@@ -9,12 +9,12 @@ makedepends=("cmake" "make" "gcc")
 sha512sums=("SKIP")
 license=("GPL3")
 build() {
-    cd "$srcdir/$pkgname-$pkgver"
+    cd "${pkgname}-${pkgver}"
     cmake .
     cmake --build .
 }
 package() {
-    cd "$srcdir/$pkgname-$pkgver"
+    cd "${pkgname}-${pkgver}"
     mkdir -p "${pkgdir}/usr/bin"
     cp um "${pkgdir}/usr/bin/"
     ln -s "${pkgdir}/usr/bin/um" "${pkgdir}/usr/bin/umpire"
