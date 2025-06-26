@@ -33,7 +33,7 @@
 - [x] CMake + Nix
 - [ ] CMake + homebrew (MacOS Apple)
 - [x] CMake + PKGBUILD (Arch Linux AUR)
-- [ ] Make a static binary (cmake and stuff)
+- [x] Make a static binary (cmake and stuff)
 
 ### Final Testing
 - [x] Code refactoring (cleaner implementation)
@@ -54,9 +54,9 @@
 ### CI
 - [x] TestCase checker (development)
 - [ ] Build checker: GitHub Actions
-  - [ ] CMake
+  - [x] CMake
   - [x] nix flakes
-  - [ ] PKGBUILD (Arch)
+  - [x] PKGBUILD (Arch)
   - [ ] homebrew (Apple)
 
 ### Package Managment
@@ -66,7 +66,6 @@
 #### Stable Release
 - [x] AUR (PKGBUILD Arch Linux) 
 - [ ] homebrew (MacOS)
-- [ ] Static binary (auto generated)
 
 ### Future Roadmaps
 - [ ] MLE and Memory limit
