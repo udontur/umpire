@@ -1,0 +1,39 @@
+name: Build using CMake
+
+on:
+  pull_request:
+    branches: [ "main" ]
+  push:
+    branches: [main]
+
+jobs:
+
+  # CMake, x86_64 Linux
+  cmake-x86_64-linux:
+    name: Linux x86_64
+    runs-on: ubuntu-24.04
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - uses: threeal/cmake-action@v2.1.0
+        with:
+          cxx-compiler: gcc
+      - run: cmake .
+      - run: cmake --build .
+
+  # CMake, ARM Linux
+  cmake-aarch64-linux:
+    name: Linux aarch64
+    runs-on: ubuntu-24.04-arm
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - uses: threeal/cmake-action@v2.1.0
+        with:
+          cxx-compiler: gcc
+      - run: cmake .
+      - run: cmake --build .
