@@ -43,7 +43,7 @@
 ### Documentation (README)
 - [x] readme: Clean and nice readme
 - [x] readme: Package badge, version badge, and build badge
-- [ ] readme: Concise installation guide (and one for the other linux distro)
+- [x] readme: Concise installation guide (and one for the other linux distro)
 - [x] readme: Clean, easy to understand usage guide
 - [x] readme: What is it and why it helps you
 - [x] docs: Good development docs

@@ -59,7 +59,7 @@ Umpire is available for both Linux and MacOS.
 </details>
 
 ### 🔵 Arch Linux (AUR)
-Use an AUR helper of your choice to get Umpire (like `yay` and `paru`):
+Use an AUR helper of your choice to get Umpire (like `yay` or `paru`):
 ```sh
 yay -S umpire
 ```
