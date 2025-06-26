@@ -1,7 +1,7 @@
 ## All Linux Distributions
 You can get Umpire for all Linux distros by manually building Umpire and including it in the PATH variable.
 
-### Prerequisites
+### ❓️ Prerequisites
 The following packages must be installed in your system:
 ```
 CMake: Version >= 3.27
@@ -10,7 +10,7 @@ GCC: Version >= 8.0
 ```
 This only works if your distribution follows the FHS (Filesystem Hierarchy Standard).
 
-### Building Umpire
+### 🛠️ Building Umpire
 1. Clone the repository
 ```sh
 git clone https://github.com/udontur/umpire && cd umpire
@@ -33,7 +33,7 @@ cd ..
 ```
 The resulting binary is located in `build/um`.
 
-### Adding Umpire to the PATH variable
+### 🛣️ Adding Umpire to the PATH variable
 1. Make sure `/usr/local/bin` exists
 ```sh
 sudo mkdir -p /usr/local/bin
@@ -47,7 +47,7 @@ sudo cp build/um /usr/local/bin/um
 sudo ln -s /usr/local/bin/um /usr/local/bin/umpire
 ```
 
-### Test if it works
+### 👍️ Test if it works
 1. Open a new terminal and type:
 ```sh
 um
