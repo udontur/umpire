@@ -18,9 +18,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4.2.2
       - uses: egor-tensin/setup-gcc@v1
-      - uses: threeal/cmake-action@v2.1.0
-        with:
-          cxx-compiler: gcc
+      - uses: nicledomaS/cmake_build_action@v1.4
+      - run: gcc --version
       - run: cmake .
       - run: cmake --build .
 
@@ -34,8 +33,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4.2.2
       - uses: egor-tensin/setup-gcc@v1
-      - uses: threeal/cmake-action@v2.1.0
-        with:
-          cxx-compiler: gcc
+      - uses: nicledomaS/cmake_build_action@v1.4
       - run: cmake .
       - run: cmake --build .
