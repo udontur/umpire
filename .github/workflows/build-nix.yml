@@ -1,4 +1,4 @@
-name: Build using Nix flakes
+name: Build using Nix flakes and CMake
 
 on:
   pull_request:
@@ -32,7 +32,7 @@ jobs:
       - uses: DeterminateSystems/determinate-nix-action@main
       - run: nix build .
 
-# Apple GitHub actions is eating my credits (if the above 2 builds, i will probably build on apple)
+# Apple GitHub actions is eating my credits (if the above 2 builds, it will probably build on apple)
 
   # # Nix Flakes, x86_64 Apple
   # nix-flakes-x86_64-darwin:
