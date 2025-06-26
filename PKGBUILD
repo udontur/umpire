@@ -9,15 +9,13 @@ makedepends=("cmake" "make" "gcc")
 sha512sums=("SKIP")
 license=("GPL3")
 build() {
-    cd ..
-    mkdir -p build
-    cd build
-    cmake ..
+    cd "$srcdir/$pkgname-$pkgver"
+    cmake .
     cmake --build .
 }
 package() {
-    cd ..
+    cd "$srcdir/$pkgname-$pkgver"
     mkdir -p "${pkgdir}/usr/bin"
-    cp build/um "${pkgdir}/usr/bin/"
+    cp um "${pkgdir}/usr/bin/"
     ln -s "${pkgdir}/usr/bin/um" "${pkgdir}/usr/bin/umpire"
 }
