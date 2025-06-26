@@ -64,7 +64,7 @@
 - nix flakes
 
 #### Stable Release
-- [ ] AUR (PKGBUILD Arch Linux) 
+- [x] AUR (PKGBUILD Arch Linux) 
 - [ ] homebrew (MacOS)
 - [ ] Static binary (auto generated)
 

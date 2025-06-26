@@ -34,6 +34,8 @@ Umpire is available for both Linux and MacOS.
 > rustc # Rust
 > ```
 ### ❄️ Nix (Linux and MacOS)
+Umpire is available as a Nix flake. 
+
 1. Add the url to your ```flake.nix``` input:
 ```nix
 inputs = {
@@ -50,9 +52,13 @@ environment.systemPackages = with pkgs; [
 ```
 3. Rebuild your configuration with Nix flakes enabled.
 <!-- ### 🍺 Homebrew (MacOS) -->
-### 🔵 AUR (Arch Linux)
-`yay -S ftxui`
-`makepkg -si`
+### 🔵 Arch Linux (AUR)
+Umpire is available in the AUR (Arch User Repository).
+
+Use an AUR helper of your choice to get Umpire (like `yay` and `paru`):
+```sh
+yay -S umpire
+```
 <!-- ### Other Linux -->
 
 ## 🖥️ Usage
