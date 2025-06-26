@@ -1,0 +1,44 @@
+
+  
+
+name: Build on Arch Linux
+
+on:
+  pull_request:
+    branches: [ "main" ]
+  push:
+    branches: [main]
+
+jobs:
+
+  # Arch Linux, x86_64 Linux
+  arch-x86_64-linux:
+    name: Linux x86_64
+    runs-on: ubuntu-24.04
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - uses: egor-tensin/setup-gcc@v1
+      - uses: nicledomaS/cmake_build_action@v1.4
+      - uses: FFY00/build-arch-package@v1
+        with:
+          PKGBUILD: .
+      - run: makepkg -si
+
+  # Arch Linux, ARM Linux
+  arch-aarch64-linux:
+    name: Linux aarch64
+    runs-on: ubuntu-24.04-arm
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4.2.2
+      - uses: egor-tensin/setup-gcc@v1
+      - uses: nicledomaS/cmake_build_action@v1.4
+      - uses: FFY00/build-arch-package@v1
+        with:
+          PKGBUILD: .
+      - run: makepkg -si
