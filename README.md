@@ -5,7 +5,7 @@
     ⚖️ Turn testing into your winning edge!
     <br />
     <br />
-    <img alt="Version Number" src="https://img.shields.io/badge/v0.1--alpha-Package?label=Version&color=blue">
+    <img alt="Version Number" src="https://img.shields.io/badge/v0.1-Package?label=Version&color=blue">
     <img alt="GitHub Actions Status" src="https://img.shields.io/github/actions/workflow/status/udontur/umpire/build-nix.yml?logo=GitHub">
     <img alt="Static Badge" src="https://img.shields.io/badge/Passion-Made%20with?label=Made%20with&color=red">
   </p>
@@ -34,21 +34,31 @@ Umpire is available for both Linux and MacOS.
 > rustc # Rust
 > ```
 ### ❄️ Nix (Linux and MacOS)
-1. Add the url to your ```flake.nix``` input:
-```nix
-inputs = {
+
+<details>
+  <summary>Click here to see the installation guide</summary>
+  <br>
+  Umpire is available via Nix flakes. Please enable Nix flakes for your system (here is the doc that explains how to enable it: <a href="https://nixos.wiki/wiki/Flakes">NixOS Wiki</a>). 
+
+  <br>
+  <br>
+  
+  1. Add the url to your <code>flake.nix</code> input:
+  <pre lang="nix">inputs = {
   umpire.url = "github:udontur/umpire";
   # ...
-};
-```
-2. Add the package in ```environment.systemPackages```:
-```nix
-environment.systemPackages = with pkgs; [
+};</pre>
+  
+  2. Add the package in <code>environment.systemPackages</code>:
+  <pre lang="nix">environment.systemPackages = with pkgs; [
   inputs.umpire.packages."${system}".default
   # ...
-];
-```
-3. Rebuild your configuration with Nix flakes enabled.
+];</pre>
+  3. Rebuild your configuration with Nix flakes enabled.
+  <pre lang="sh">sudo nixos-rebuild switch --flake /PATH/TO/CONFIG#WORKSTATION_NAME</pre>
+</details>
+
+
 <!-- ### 🍺 Homebrew (MacOS) -->
 ### 🔵 Arch Linux (AUR)
 Use an AUR helper of your choice to get Umpire (like `yay` and `paru`):
