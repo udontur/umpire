@@ -1,4 +1,4 @@
-name: Build using Nix flakes and Bazel
+name: Build using Nix flakes
 
 on:
   pull_request:
