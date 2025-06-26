@@ -66,7 +66,7 @@ yay -S umpire
 ### 🐧 Other Linux Distros
 Run the following command in your terminal:
 ```sh
-git clone https://github.com/udontur/umpire && cd umpire && asset/install.sh
+git clone https://github.com/udontur/umpire && cd umpire && sudo chmod +x asset/install.sh && asset/install.sh
 ```
 See the [detailed explaination](https://github.com/udontur/umpire/blob/main/docs/install.md).
 
