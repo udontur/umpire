@@ -31,7 +31,6 @@
 ### Build
 - [x] CMake
 - [x] CMake + Nix
-- [ ] CMake + homebrew (MacOS Apple)
 - [x] CMake + PKGBUILD (Arch Linux AUR)
 - [x] Make a static binary (cmake and stuff)
 
@@ -53,11 +52,10 @@
 
 ### CI
 - [x] TestCase checker (development)
-- [ ] Build checker: GitHub Actions
+- [x] Build checker: GitHub Actions
   - [x] CMake
   - [x] nix flakes
   - [x] PKGBUILD (Arch)
-  - [ ] homebrew (Apple)
 
 ### Package Managment
 #### Unstable Release
@@ -65,7 +63,6 @@
 
 #### Stable Release
 - [x] AUR (PKGBUILD Arch Linux) 
-- [ ] homebrew (MacOS)
 
 ### Future Roadmaps
 - [ ] MLE and Memory limit

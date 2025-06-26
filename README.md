@@ -58,15 +58,17 @@ Umpire is available for both Linux and MacOS.
   <pre lang="sh">sudo nixos-rebuild switch --flake /PATH/TO/CONFIG#WORKSTATION_NAME</pre>
 </details>
 
-
-<!-- ### 🍺 Homebrew (MacOS) -->
 ### 🔵 Arch Linux (AUR)
 Use an AUR helper of your choice to get Umpire (like `yay` and `paru`):
 ```sh
 yay -S umpire
 ```
 ### 🐧 Other Linux Distros
-See the [installation guide](https://github.com/udontur/umpire/blob/main/docs/install.md).
+Run the following command in your terminal:
+```sh
+git clone https://github.com/udontur/umpire && cd umpire && asset/install.sh
+```
+See the [detailed explaination](https://github.com/udontur/umpire/blob/main/docs/install.md).
 
 ## 🖥️ Usage
 The usage guide is also available via the following command: `um --help`
