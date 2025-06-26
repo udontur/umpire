@@ -9,22 +9,9 @@ on:
 jobs:
 
   # Arch Linux, x86_64 Linux
-  arch-x86_64-linux:
-    name: Linux x86_64
+  arch-linux:
+    name: Arch Linux
     runs-on: ubuntu-24.04
-    permissions:
-      id-token: write
-      contents: read
-    steps:
-      - uses: actions/checkout@v4.2.2
-      - uses: egor-tensin/setup-gcc@v1
-      - uses: nicledomaS/cmake_build_action@v1.4
-      - uses: heyhusen/archlinux-package-action@v2.4.0
-
-  # Arch Linux, ARM Linux
-  arch-aarch64-linux:
-    name: Linux aarch64
-    runs-on: ubuntu-24.04-arm
     permissions:
       id-token: write
       contents: read
