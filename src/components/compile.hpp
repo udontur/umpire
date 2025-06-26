@@ -18,10 +18,9 @@ bool compileFunction() {
         command += "-o ";
         command += user.folder + "main";
     } else if (user.isGo) {
-        command = "go build ";
-        command += user.folder + "main.go ";
-        command += "-o ";
-        command += user.folder + "main";
+        command = "go build -o ";
+        command += user.folder + "main ";
+        command += user.folder + "main.go";
     } else if (user.isJava) {
         command = "javac -d " + user.folder + " ";
         command += user.folder + "main.java";
