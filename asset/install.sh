@@ -12,8 +12,8 @@ else
     echo "Failed to build Umpire, make sure CMake, Make, and GCC (Version >= 8.0) are installed."
   else
     sudo mkdir -p /usr/local/bin
-    sudo ln -s /usr/local/bin/um /usr/local/bin/umpire
     sudo cp build/um /usr/local/bin/um
+    sudo ln -s /usr/local/bin/um /usr/local/bin/umpire
     echo "Umpire is installed successfully!"
   fi
 fi
