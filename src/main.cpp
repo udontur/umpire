@@ -52,7 +52,7 @@ int main(int argc, char* argv[]) {
         fmt::print("The directory is \"{}\".\n", user.folder);
         return throwError("\"testcase\" folder not found.");
     }
-    if (!mainExists()) {
+    if (mainExists() == false) {
         fmt::print("The directory is \"{}\".\n", user.folder);
         return throwError(
             "Code file not found. \nSupported Language: C++, Rust, Go, Java, Python.");
