@@ -24,7 +24,7 @@ mkdir -p build && cd build
 cmake ..
 ```
 4. Build CMake
-```
+```sh
 cmake --build .
 ```
 5. After building CMake, exit the build directory
@@ -39,7 +39,7 @@ The resulting binary is located in `build/um`.
 sudo mkdir -p /usr/local/bin
 ```
 2. Move the binary file to `/usr/local/bin`
-```
+```sh
 sudo cp build/um /usr/local/bin/um
 ```
 3. Symlink `umpire` with `um` (Optional)
