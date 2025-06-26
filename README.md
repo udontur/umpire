@@ -59,7 +59,8 @@ Use an AUR helper of your choice to get Umpire (like `yay` and `paru`):
 ```sh
 yay -S umpire
 ```
-<!-- ### Other Linux -->
+### 🐧 Other Linux Distros
+See the [installation guide](https://github.com/udontur/umpire/blob/main/docs/install.md)
 
 ## 🖥️ Usage
 The usage guide is also available via the following command: `um --help`
