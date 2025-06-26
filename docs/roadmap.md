@@ -32,7 +32,7 @@
 - [x] CMake
 - [x] CMake + Nix
 - [ ] CMake + homebrew (MacOS Apple)
-- [ ] CMake + PKGBUILD (Arch Linux AUR)
+- [x] CMake + PKGBUILD (Arch Linux AUR)
 - [ ] Make a static binary (cmake and stuff)
 
 ### Final Testing
