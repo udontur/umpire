@@ -83,7 +83,7 @@
               homepage = "https://github.com/udontur/umpire";
               description = "A blazingly fast competitive programming helper";
               mainProgram = "umpire";
-              license = pkgs.lib.licenses.mit;
+              license = pkgs.lib.licenses.gpl3;
               platforms = pkgs.lib.platforms.all;
             };
           };
