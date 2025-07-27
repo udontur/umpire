@@ -115,7 +115,7 @@ um -t 3.5 # 3.5 seconds time limit
 > [!TIP]
 > Omit for a 1 second time limit
 > ```
-> um
+> um # no flags
 > ```
 #### 2. Program inputs and outputs
 See your program's outputs and the corresponding inputs by toggling the following flag:
