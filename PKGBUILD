@@ -1,5 +1,5 @@
 pkgname="umpire"
-pkgver=0.1
+pkgver=0.2
 pkgrel=1
 pkgdesc="A blazingly fast competitive programming helper"
 arch=("x86_64" "aarch64")

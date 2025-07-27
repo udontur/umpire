@@ -5,7 +5,7 @@
     ⚖️ Turn testing into your winning edge!
     <br />
     <br />
-    <img alt="Version Number" src="https://img.shields.io/badge/v0.1-Package?label=Version&color=blue">
+    <img alt="Version Number" src="https://img.shields.io/badge/v0.2-Package?label=Version&color=blue">
     <img alt="GitHub Actions Status" src="https://img.shields.io/github/actions/workflow/status/udontur/umpire/build-nix.yml?logo=GitHub">
     <img alt="Static Badge" src="https://img.shields.io/badge/Passion-Made%20with?label=Made%20with&color=red">
   </p>
