@@ -33,6 +33,8 @@ void runTest(int index) {
                 static_cast<int>(user.runTimeLimit * 1000))) == std::future_status::timeout) {
 
         currentTestCase.isTle = true;
+        user.enableOutput = false;
+
         // TLE display
         if (!tleFlag) {
             tleFlag = true;
@@ -50,8 +52,7 @@ void runTest(int index) {
     currentTestCase.runTime = std::chrono::duration_cast<std::chrono::milliseconds>(runStop - runStart).count() / 1000.0;
 
     currentTestCase.isAc = compareOutput(index);
-    
-    std::filesystem::remove(currentTestCase.programOutPath);
+
 
     return;
 }

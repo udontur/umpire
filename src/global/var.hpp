@@ -30,6 +30,8 @@ class User {
         bool isRte=false;
         bool isWa=false;
         bool isAc=false;   
+
+        bool enableOutput=false;
 };
  
 

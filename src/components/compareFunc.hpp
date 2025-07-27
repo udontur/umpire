@@ -4,6 +4,18 @@
 #include "../global/allheader.hpp"
 #include "../global/var.hpp"
 
+void printFile(std::string path){
+    std::ifstream fin(path);
+    std::string currentString;
+    
+    while(!fin.eof()){
+        fin >> currentString;
+        fmt::print(currentString);
+    }
+
+    fin.close();
+}
+
 bool compareOutput(int index) {
     TestCase& currentTestCase = testCaseList[index];
 

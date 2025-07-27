@@ -117,6 +117,11 @@ um -t 3.5 # 3.5 seconds time limit
 > ```
 > um
 > ```
+#### 2. Program inputs and outputs
+See your program's outputs and the corresponding inputs by toggling the following flag:
+```sh
+um --output
+```
 
 ### 💡 Example
 Run the code located in the `task-a` folder with a 2 second time limit:

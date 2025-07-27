@@ -29,6 +29,11 @@ int main(int argc, char* argv[]) {
         .help("specify the time limit, support decimal numbers")
         .metavar("TIME");
 
+    program.add_argument("--output")
+        .default_value(false)
+        .implicit_value(true)
+        .help("print's the program's input and output");
+
     try {
         program.parse_args(argc, argv);
     } catch (const std::exception& err) {
@@ -41,7 +46,8 @@ int main(int argc, char* argv[]) {
     user.folder = program.get<std::string>("folderPath");
     user.folder += "/";
     user.runTimeLimit = program.get<double>("-t");
-
+    user.enableOutput = program.get<bool>("--output");
+    
     if (program["--help"] == true) {
         // Cannot use fmt::print
         std::cout << program;
@@ -102,6 +108,22 @@ int main(int argc, char* argv[]) {
 
     makeFinalVerdict();
     printFinalVerdict();
+
+    if(user.enableOutput){
+        fmt::print("\n");
+    }
+    
+    for(auto currentTestCase : testCaseList) {
+        if(user.enableOutput){
+            fmt::print("{} Input: \n", currentTestCase.name);
+            printFile(currentTestCase.inPath);
+            fmt::print("\n");
+            fmt::print("{} Output: \n", currentTestCase.name);
+            printFile(currentTestCase.programOutPath);
+            fmt::print("\n\n");
+        }
+        std::filesystem::remove(currentTestCase.programOutPath);
+    }
 
     return 0;
 }
