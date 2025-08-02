@@ -92,6 +92,7 @@ int main(int argc, char* argv[]) {
         getPathList(user.folder + user.testCaseFolder);
     testCaseList = getTestCaseList(pathList);
 
+    // Multi-thread each testcase run
     std::vector<std::thread> testCaseThreads(testCaseList.size());
     for (auto currentTestCase : testCaseList) {
         testCaseThreads[currentTestCase.index] =
@@ -103,16 +104,16 @@ int main(int argc, char* argv[]) {
 
     clearCache();
 
+    // Verdict table
     fmt::print("{}", deleteLine);
     renderVerdictTable(testCaseList);
-
     makeFinalVerdict();
     printFinalVerdict();
-
+    
+    // User output flag
     if(user.enableOutput){
         fmt::print("\n");
     }
-    
     for(auto currentTestCase : testCaseList) {
         if(user.enableOutput){
             fmt::print("{} Input: \n", currentTestCase.name);

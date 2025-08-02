@@ -10,6 +10,7 @@ std::string makeVerdictRunTime(double runTime, bool isTle);
 
 void renderVerdictTable(std::vector<TestCase> &testCaseList) {
     std::vector<std::vector<ftxui::Element>> tableContent;
+    // First row
     tableContent.push_back({
         ftxui::text("Name"),
         ftxui::text("Verdict"),
@@ -37,10 +38,12 @@ void renderVerdictTable(std::vector<TestCase> &testCaseList) {
         tableContent.push_back(currentRow);
     }
 
+    // Make all border light
     auto table = ftxui::Table(tableContent);
     table.SelectAll().Border(ftxui::LIGHT);
     table.SelectAll().SeparatorVertical(ftxui::LIGHT);
 
+    // Make the first row border heavy
     table.SelectRow(0).Border(ftxui::DOUBLE);
     table.SelectRow(0).Decorate(ftxui::bold);
 

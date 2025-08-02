@@ -7,6 +7,7 @@
 bool compileFunction() {
     std::string command;
 
+    // Python is interpreted
     if (user.isCpp) {
         command = "g++ ";
         command += user.folder + "main.cpp ";

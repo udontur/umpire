@@ -1,10 +1,20 @@
+### Future Roadmaps
+- [x] See user program input and outputs
+- [ ] A test case creator
+- [ ] A test case template initiator
+
+### Future Roadmaps that I have no idea how to develop
+- [ ] MLE and Memory limit
+- [ ] ~~nixpkgs (upload)~~
+- [ ] Better TLE mechanism
+
 ### Functionality
 - [x] Time parser (um -t)
 - [x] compile program
 - [x] path list maker
 - [x] Multithread run case
 - [x] Case runner
-- [x] ~~TLE (I am doomed, it still does not work. Hour wasted: 5)~~ manual cancel
+- [x] ~~TLE (I am doomed, it still does not work. Hour wasted: 8)~~ manual cancel
 - [x] WA and AC comparer
 - [x] Detect RTE (empty output?)
 - [x] Time limit: accept doubles too (store it in milliseconds afterwards)
@@ -63,9 +73,3 @@
 
 #### Stable Release
 - [x] AUR (PKGBUILD Arch Linux) 
-
-### Future Roadmaps
-- [ ] MLE and Memory limit
-- [ ] nixpkgs (upload)
-- [ ] Better TLE mechanism
-- [ ] A test case inputter

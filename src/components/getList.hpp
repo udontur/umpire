@@ -25,6 +25,7 @@ std::vector<std::string> getPathList(std::string directory) {
         }
         currentFile.str.erase(dotPosition, eraseLength);
 
+        // Remove duplicate
         if (!isUnique[currentFile.str]) {
             pathList.push_back(currentFile.str);
             isUnique[currentFile.str] = 1;

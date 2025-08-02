@@ -10,7 +10,6 @@ GCC: Version >= 8.0
 ```
 This only works if your distribution follows the FHS (Filesystem Hierarchy Standard).
 
-
 ### 🛠️ Building Umpire
 1. Clone the repository
 ```sh
@@ -24,7 +23,7 @@ mkdir -p build && cd build
 ```sh
 cmake ..
 ```
-4. Build CMake
+4. Build CMake, it should take around 3 minutes, depending on your computer and internet speed 
 ```sh
 cmake --build .
 ```

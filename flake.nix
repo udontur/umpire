@@ -17,6 +17,7 @@
         pkgs = import nixpkgs {
           inherit system;
         };
+        # Tarball sources
         fmt_src = builtins.fetchTarball{
           url = "https://github.com/fmtlib/fmt/archive/refs/tags/11.2.0.tar.gz";
           sha256 = "sha256:0x8j1k1cnmvv5hbhhyfm7bqw2d2rb3jpmz6bc4a195z8pzj582dh";
@@ -47,12 +48,14 @@
               git
             ];
 
+            # Put tarball sources in CMake
             configurePhase = ''
               export fmt_src=${fmt_src}
               export ftxui_src=${ftxui_src}
               export argparse_src=${argparse_src}
             '';
             
+            # Put tarball sources in CMake 2
             cmakeFlags = [
               "-DCMAKE_BUILD_TYPE=Release"
               "-Dfmt_src=${fmt_src}"
@@ -66,7 +69,6 @@
               cmake ..
               cmake --build .
             '';
-              
             
             installPhase = ''
               runHook preInstall

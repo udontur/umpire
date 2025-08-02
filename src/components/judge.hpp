@@ -19,6 +19,7 @@ void runTest(int index) {
     }
     std::string command = prefix + " < " + user.folder + currentTestCase.inPath + " > " + currentTestCase.programOutPath;
     
+    // Async run using system command
     int systemReturn;
     std::chrono::time_point<std::chrono::high_resolution_clock> runStart, runStop;
     auto runSystem = [&runStart, &runStop, &command, &systemReturn]() {
@@ -28,6 +29,7 @@ void runTest(int index) {
     };
     auto runSystemFuture = std::async(std::launch::async, runSystem);
 
+    // Time Limit Exceeded
     if (runSystemFuture.wait_for(
             std::chrono::milliseconds(
                 static_cast<int>(user.runTimeLimit * 1000))) == std::future_status::timeout) {
@@ -49,7 +51,9 @@ void runTest(int index) {
         currentTestCase.isRte = true;
     }
     
-    currentTestCase.runTime = std::chrono::duration_cast<std::chrono::milliseconds>(runStop - runStart).count() / 1000.0;
+    currentTestCase.runTime =
+        std::chrono::duration_cast<std::chrono::milliseconds>(
+            runStop - runStart).count() / 1000.0;
 
     currentTestCase.isAc = compareOutput(index);
 
