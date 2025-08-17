@@ -1,7 +1,9 @@
 ### Future Roadmaps
 - [x] See user program input and outputs
-- [ ] A test case creator
+- [ ] A test case creator built for speed
 - [ ] A test case template initiator
+- [ ] Update AUR using GH actions
+- [ ] Find a better solution for other Linux users
 
 ### Future Roadmaps that I have no idea how to develop
 - [ ] MLE and Memory limit
