@@ -3,7 +3,9 @@
 - [ ] A test case creator built for speed
 - [ ] A test case template initiator
 - [ ] Update AUR using GH actions
-- [ ] Find a better solution for other Linux users
+- [ ] Make a .deb pacakge using GH actions and attach (to replace the others Linux section, sorry Fedora)
+- [ ] Attach a standalone binary using GH actions
+- [ ] Change how other linux users download this thing
 
 ### Future Roadmaps that I have no idea how to develop
 - [ ] MLE and Memory limit
