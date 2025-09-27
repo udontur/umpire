@@ -2,16 +2,15 @@
 - [x] See user program input and outputs
 - [ ] A test case creator built for speed
 - [ ] A test case template initiator
+- [ ] Package it on Flathub
 - [ ] Update AUR using GH actions
-- [ ] Make a .deb pacakge using GH actions and attach (to replace the others Linux section, sorry Fedora)
-- [ ] Attach a standalone binary using GH actions
-- [ ] Change how other linux users download this thing
 
 ### Future Roadmaps that I have no idea how to develop
 - [ ] MLE and Memory limit
 - [ ] ~~nixpkgs (upload)~~
 - [ ] Better TLE mechanism
 
+## Previous roadmap
 ### Functionality
 - [x] Time parser (um -t)
 - [x] compile program
