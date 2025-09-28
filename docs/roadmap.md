@@ -1,14 +1,16 @@
-### Future Roadmaps
+## Roadmap
 - [x] See user program input and outputs
+- [ ] Package a AppImage using GH actions, then add a installation tutorial
+- [ ] Package to AUR using GH actions
 - [ ] A test case creator built for speed
+	- `um add sample-1`
+	- The user enters input and output
+	- A new .in and .out will be created in the testcase folder
 - [ ] A test case template initiator
-- [ ] Package it on Flathub
-- [ ] Update AUR using GH actions
-
-### Future Roadmaps that I have no idea how to develop
-- [ ] MLE and Memory limit
-- [ ] ~~nixpkgs (upload)~~
-- [ ] Better TLE mechanism
+	- Like `um init 5`
+	- Then it will create folders a b c d e
+	- It has all the file name and file structure ready
+- [ ] IDK: Safe way to detect and terminate TLE sessions
 
 ## Previous roadmap
 ### Functionality

@@ -114,7 +114,7 @@ um -t 3.5 # 3.5 seconds time limit
 ```
 > [!TIP]
 > Omit for a 1 second time limit
-> ```
+> ```sh
 > um # no flags
 > ```
 #### 2. Program inputs and outputs
