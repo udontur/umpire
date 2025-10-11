@@ -5,4 +5,3 @@ install:
 	cmake --build .
 	sudo mkdir -p /usr/local/bin
 	sudo cp um /usr/local/bin/um
-	um

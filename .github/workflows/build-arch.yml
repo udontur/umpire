@@ -1,4 +1,4 @@
-name: Build on Arch Linux
+name: Build using PKGBUILD (Arch Linux)
 
 on:
   pull_request:
