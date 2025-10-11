@@ -1,4 +1,4 @@
-name: Build using Nix flakes (Linux)
+name: Nix flakes 
 
 on:
   pull_request:

@@ -1,4 +1,4 @@
-name: Build using Make (Linux)
+name: Make 
 
 on:
   pull_request:

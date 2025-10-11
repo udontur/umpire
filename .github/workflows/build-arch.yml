@@ -1,4 +1,4 @@
-name: Build using PKGBUILD (Arch Linux)
+name: Arch Linux PKGBUILD
 
 on:
   pull_request:
@@ -10,7 +10,7 @@ jobs:
 
   # Arch Linux, x86_64 Linux
   arch-linux:
-    name: Arch Linux
+    name: Linux x86_64
     runs-on: ubuntu-24.04
     permissions:
       id-token: write
