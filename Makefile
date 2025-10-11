@@ -1,5 +1,6 @@
 install:
 	mkdir -p build
+	ls
 	cd build
 	cmake ..
 	cmake --build .
