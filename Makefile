@@ -1,6 +1,4 @@
 install:
-	git clone https://github.com/udontur/umpire
-	cd umpire
 	mkdir -p build
 	cd build
 	cmake ..
