@@ -77,9 +77,9 @@ Organize your code directory as follows:
 ```sh
 task-a # The folder that stores everything
 └─ main.cpp # File name must be "main"
-   └─ testcase # Exact name
-      ├─ ABC.in # Same input / output name: ABC
-      ├─ ABC.out # Same input / output name: ABC
+└─ testcase # Exact name
+  ├─ ABC.in # Same input / output name: ABC
+  ├─ ABC.out # Same input / output name: ABC
 ```
 
 <details>
