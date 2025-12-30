@@ -5,25 +5,20 @@
     ⚖️ Turn testing into your winning edge!
     <br />
     <br />
-    <img alt="Version Number" src="https://img.shields.io/badge/v0.2-Package?label=Version&color=blue">
+    <img alt="Release Number" src="https://img.shields.io/badge/v2.2-Package?label=Release&color=blue">
     <img alt="GitHub Actions Status" src="https://img.shields.io/github/actions/workflow/status/udontur/umpire/build-nix.yml?logo=GitHub">
     <img alt="Static Badge" src="https://img.shields.io/badge/Passion-Made%20with?label=Made%20with&color=red">
   </p>
 </div>
 
-## ⭐️ About
-> Say goodbye to annoying manual test runs during an intense programming contest!
+Umpire is a quick and intuitive TUI tool that eliminates all the hassle for testing your code in competitive programming. All you need to do is input your test case once, layout your folder structure, and umpire will take it from there!
 
-Umpire is a blazingly fast command-line helper that compiles your code, executes it, and automatically validates against all test cases.
-
-With just one short command, you can get quick, clear, and easy-to-read results at a glance. It lets you focus on solving problems rather than wasting time juggling with annoying copy-pastes and loads of commands. 
-
-**Umpire turns testing into your winning edge!**
+> **Umpire turns testing into your winning edge!**
 
 ![Demo Video](asset/demo.gif)
 
-## 📥 Installation (Linux and MacOS)
-Umpire is available for both Linux and MacOS. 
+## Installation
+Umpire is available for both Linux and MacOS.
 > [!NOTE]
 > To avoid large package size, please install the compilers that you use:
 > ```sh
@@ -33,7 +28,7 @@ Umpire is available for both Linux and MacOS.
 > zulu # Java
 > rustc # Rust
 > ```
-### ❄️ Nix (Linux and MacOS)
+### Nix (Linux and MacOS)
 
 <details>
   <summary>Click here to see the installation guide</summary>
@@ -58,42 +53,31 @@ Umpire is available for both Linux and MacOS.
   <pre lang="sh">sudo nixos-rebuild switch --flake /PATH/TO/CONFIG#WORKSTATION_NAME</pre>
 </details>
 
-### 🔵 Arch Linux (AUR)
+### AUR (Arch Linux)
 Use an AUR helper of your choice to get Umpire (like `yay` or `paru`):
 ```sh
 yay -S umpire
 ```
-### 🐧 Other Linux Distros
+### Other Linux Distros
 Run the following command in your terminal:
 ```sh
 git clone https://github.com/udontur/umpire && cd umpire && sudo make install
 ```
 
-## 🖥️ Usage
-The usage guide is also available via the following command: `um --help`
+## Usage
+See all details in the [documentations](./docs/run.md).
 
-### 📁 Folder Structure
+### Prerequisite
 Organize your code directory as follows:
 ```sh
-task-a # The folder that stores everything
+task-a/ # The folder that stores everything
 └─ main.cpp # File name must be "main"
 └─ testcase # Exact name
-  ├─ ABC.in # Same input / output name: ABC
-  ├─ ABC.out # Same input / output name: ABC
+  ├─ ABC.in
+  ├─ ABC.out 
 ```
 
-<details>
-  <summary>Click here for more details</summary><br />
-<code>task-a</code> is the directory that contains the code file and test case folder.
-
-The code file should be named as <code>main.XXX</code> where <code>XXX</code> is the file extension (<code>.cpp</code> for C++).
-
-The test cases should be located in the <code>testcase</code> folder (must be the **exact name**).
-
-Each test case in the folder must be in the format of <code>ABC.in</code> and <code>ABC.out</code> where <code>ABC</code> is the input / output file name.
-</details>
-
-### 🧠 Running Umpire
+### Running Umpire
 Run `umpire` in the **current** directory:
 ```sh
 um
@@ -102,28 +86,7 @@ Or specify a directory:
 ```
 um task-a
 ```
-> [!NOTE]
-> For Java programmers, make sure the class name is `main`.
-> 
-### ⚙️ Options for Umpire
-#### 1. Execution time limit
-Set the execution time limit in seconds (accepts integers and decimal numbers):
-```sh
-um -t 3.5 # 3.5 seconds time limit
-```
-> [!TIP]
-> Omit for a 1 second time limit
-> ```sh
-> um # no flags
-> ```
-#### 2. Program inputs and outputs
-See your program's outputs and the corresponding inputs by toggling the following flag:
-```sh
-um --output
-```
 
-### 💡 Example
-Run the code located in the `task-a` folder with a 2 second time limit:
-```sh
-um task-a -t 2
-```  
+
+## License
+MIT License - See [LICENSE](./LICENSE) for details.
