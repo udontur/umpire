@@ -1,17 +1,8 @@
-<br />
-<div align="center">
-  <h1 align="center">Umpire</h1>
-  <p align="center">
-    ⚖️ Turn testing into your winning edge!
-    <br />
-    <br />
-    <img alt="Release Number" src="https://img.shields.io/badge/v2.2-Package?label=Release&color=blue">
-    <img alt="GitHub Actions Status" src="https://img.shields.io/github/actions/workflow/status/udontur/umpire/build-nix.yml?logo=GitHub">
-    <img alt="Static Badge" src="https://img.shields.io/badge/Passion-Made%20with?label=Made%20with&color=red">
-  </p>
-</div>
+# ⚖️ Umpire
 
-Umpire is a quick and intuitive TUI tool that eliminates all the hassle for testing your code in competitive programming. All you need to do is input your test case once, layout your folder structure, and umpire will take it from there!
+Umpire is a quick and intuitive TUI tool that eliminates all the hassle for testing your code in competitive programming. 
+
+All you need to do is input your test case once, layout your folder structure, and umpire will take it from there!
 
 > **Umpire turns testing into your winning edge!**
 
