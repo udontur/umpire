@@ -1,6 +1,6 @@
 # ⚖️ Umpire
 
-Umpire is a fast and intuitive TUI helper for competitive programming that eliminates all the hassle for compiling your code, testing your code, and matching test cases.
+Umpire is a hassle free multithreaded TUI helper for competitive programming that eliminates all the hassle for compiling your code, testing your code, and matching test cases.
 
 ![Demo Video](asset/demo.gif)
 
