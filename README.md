@@ -1,10 +1,6 @@
 # ⚖️ Umpire
 
-Umpire is a quick and intuitive TUI tool that eliminates all the hassle for testing your code in competitive programming. 
-
-All you need to do is input your test case once, layout your folder structure, and umpire will take it from there!
-
-> **Umpire turns testing into your winning edge!**
+Umpire is a fast and intuitive TUI helper for competitive programming that eliminates all the hassle for compiling your code, testing your code, and matching test cases.
 
 ![Demo Video](asset/demo.gif)
 
@@ -13,25 +9,19 @@ Umpire is available for both Linux and MacOS.
 > [!NOTE]
 > To avoid large package size, please install the compilers that you use:
 > ```sh
-> gcc # C++, installed by default
+> gcc # C++
 > python3 # Python
 > go # Golang
 > zulu # Java
 > rustc # Rust
 > ```
-### Nix (Linux and MacOS)
-Umpire is available via Nix flakes.
+### Nix (Linux or MacOS)
+Umpire is available via [Nix flakes](https://wiki.nixos.org/wiki/Flakes).
 ```
 inputs.umpire.packages."${system}".default
 ```
-
-### AUR (Arch Linux)
-Use an AUR helper of your choice to get Umpire (like `yay` or `paru`):
-```sh
-yay -S umpire
-```
-### Other Linux Distros
-Run the following command in your terminal:
+### All Linux distros 
+Please install [CMake](https://cmake.org/) and [Make](https://www.gnu.org/software/make/), then run the following command in your terminal:
 ```sh
 git clone https://github.com/udontur/umpire && cd umpire && sudo make install
 ```
@@ -58,7 +48,6 @@ Or specify a directory:
 ```
 um task-a
 ```
+### Options
 
-
-## License
-MIT License - See [LICENSE](./LICENSE) for details.
+The [documentation](./docs/run.md) provides a list of options, including test case outputs and custom time limits.
